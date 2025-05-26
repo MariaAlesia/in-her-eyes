@@ -1,0 +1,200 @@
+<!--OM LA LUNA-->
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concert Bucovina 2025 - Versus Pub Galați</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffb6c1;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .gallery {
+      column-count: 2;
+      column-gap: 15px;
+      padding: 30px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      text-align: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      margin: 0 auto;
+    }
+
+    .lightbox .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #111;
+      color: #ffb6c1;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        column-count: 1;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .gallery {
+        column-count: 3;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>Galerie foto <br> Concert Om la lună 2025 - Versus Pub Galați</header>
+  <nav>
+    <a href="paginaprincipala.html">Acasă</a>
+    <a href="portofoliu.html">Portofoliu</a>
+    <a href="despre.html">Despre</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="gallery">
+    <img data-src="imagini/omluna1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna2.jpg" alt="Imagine 2" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna3.jpg" alt="Imagine 3" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna4.jpg" alt="Imagine 4" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna5.jpg" alt="Imagine 5" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna6.jpg" alt="Imagine 6" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna7.jpg" alt="Imagine 7" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna8.jpg" alt="Imagine 8" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna9.jpg" alt="Imagine 9" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna10.jpg" alt="Imagine 10" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna11.jpg" alt="Imagine 11" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna12.jpg" alt="Imagine 12" class="lazy-load" onclick="openLightbox(this)"> 
+    <img data-src="imagini/omluna14.jpg" alt="Imagine 14" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna16.jpg" alt="Imagine 16" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna17.jpg" alt="Imagine 17" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna18.jpg" alt="Imagine 18" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna19.jpg" alt="Imagine 19" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna20.jpg" alt="Imagine 20" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna21.jpg" alt="Imagine 21" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna22.jpg" alt="Imagine 22" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna23.jpg" alt="Imagine 23" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna24.jpg" alt="Imagine 24" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna25.jpg" alt="Imagine 25" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna26.jpg" alt="Imagine 26" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna27.jpg" alt="Imagine 27" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna28.jpg" alt="Imagine 28" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna29.jpg" alt="Imagine 29" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna30.jpg" alt="Imagine 30" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna31.jpg" alt="Imagine 31" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna32.jpg" alt="Imagine 32" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna33.jpg" alt="Imagine 33" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna34.jpg" alt="Imagine 34" class="lazy-load" onclick="openLightbox(this)">
+
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-image" src="" alt="">
+  </div>
+
+
+
+  <script>
+    const lazyImages = document.querySelectorAll('.lazy-load');
+    const loadImages = () => {
+      lazyImages.forEach(image => {
+        if (image.getBoundingClientRect().top < window.innerHeight) {
+          image.src = image.getAttribute('data-src');
+          image.classList.remove('lazy-load');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', loadImages);
+    window.addEventListener('load', loadImages);
+    loadImages();
+
+    function openLightbox(img) {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImage = document.getElementById('lightbox-image');
+      lightbox.style.display = 'block';
+      lightboxImage.src = img.src;
+    }
+
+    function closeLightbox() {
+      var lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none';
+    }
+  </script>
+   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofoliu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffb6c1;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .gallery {
+      column-count: 2;
+      column-gap: 15px;
+      padding: 30px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      text-align: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      margin: 0 auto;
+    }
+
+    .lightbox .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #111;
+      color: #ffb6c1;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        column-count: 1;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .gallery {
+        column-count: 3;
+      }
+    }
+      .content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-family: 'Fredoka', cursive;
+      color: #ffb6c1;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>In Her Eyes-Photography</header>
+  <nav>
+    <a href="paginaprincipala.html">Acasă</a>
+    <a href="portofoliu.html">Portofoliu</a>
+    <a href="despre.html">Despre</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+   <div class="content">
+    <h2>Portofoliu</h2>
+    </div>
+
+  <div class="gallery">
+    <img data-src="imagini/bucovina1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/bucovina3.jpg" alt="Imagine 2" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/bucovina4.jpg" alt="Imagine 3" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/bucovina7.jpg" alt="Imagine 4" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/bucovina5.jpg" alt="Imagine 5" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/bucovina9.jpg" alt="Imagine 6" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/bucovina10.jpg" alt="Imagine 7" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/bucovina11.jpg" alt="Imagine 8" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/bucovina19.jpg" alt="Imagine 9" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/trooper1.jpg" alt="Imagine 11" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/trooper2.jpg" alt="Imagine 12" class="lazy-load" onclick="openLightbox(this)"> 
+    <img data-src="imagini/trooper3.jpg" alt="Imagine 13" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/trooper4.jpg" alt="Imagine 14" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/trooper6.jpg" alt="Imagine 17" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/trooper8.jpg" alt="Imagine 19" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/trooper9.jpg" alt="Imagine 20" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/trooper11.jpg" alt="Imagine 21" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/trooper20.jpg" alt="Imagine 22" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna1.jpg" alt="Imagine 21" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna6.jpg" alt="Imagine 22" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna9.jpg" alt="Imagine 23" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna10.jpg" alt="Imagine 24" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna14.jpg" alt="Imagine 25" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna15.jpg" alt="Imagine 26" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna20.jpg" alt="Imagine 27" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/omluna28.jpg" alt="Imagine 28" class="lazy-load" onclick="openLightbox(this)">
+
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-image" src="" alt="">
+  </div>
+
+
+
+  <script>
+    const lazyImages = document.querySelectorAll('.lazy-load');
+    const loadImages = () => {
+      lazyImages.forEach(image => {
+        if (image.getBoundingClientRect().top < window.innerHeight) {
+          image.src = image.getAttribute('data-src');
+          image.classList.remove('lazy-load');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', loadImages);
+    window.addEventListener('load', loadImages);
+    loadImages();
+
+    function openLightbox(img) {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImage = document.getElementById('lightbox-image');
+      lightbox.style.display = 'block';
+      lightboxImage.src = img.src;
+    }
+
+    function closeLightbox() {
+      var lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none';
+    }
+  </script>
+   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
+</body>
+</html>
