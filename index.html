@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galerie Foto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
       background-color: #000;
       color: #fff;
     }
@@ -21,57 +16,31 @@
     header {
       background-color: #111;
       padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      height: 80px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .title {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 100;
-      font-size: 1.8rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
       color: #ffb6c1;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
     }
 
     nav {
+      background-color: #222;
       display: flex;
-      gap: 30px;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
     }
 
     nav a {
       color: #ffb6c1;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
     }
 
     nav a:hover {
       text-decoration: underline;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 2rem;
-      cursor: pointer;
-      color: #ffb6c1;
-      position: absolute;
-      top: 25px;
-      right: 20px;
-      z-index: 1000;
     }
 
     .gallery {
@@ -109,8 +78,8 @@
       font-size: 1.1rem;
       color: #000;
       font-weight: 700;
+      font-family: 'Baloo 2', cursive;
     }
-
     footer {
       text-align: center;
       padding: 15px;
@@ -119,57 +88,34 @@
       margin-top: 40px;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        gap: 20px;
-        background-color: #111;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        padding: 20px;
-      }
+    .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
 
-      nav.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .logo-container {
-        flex-direction: column;
-        text-align: center;
-        margin: 0 auto;
-      }
-
-      header {
-        justify-content: center;
-        position: relative;
-      }
-    }
+.logo {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+}
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-container">
-      <img src="imagini/logo.png" alt="Logo" class="logo" />
-      <span class="title">In Her Eyes - Photography</span>
-    </div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <nav id="nav-menu">
-      <a href="index.html">Acasă</a>
-      <a href="portofoliu.html">Portofoliu</a>
-      <a href="noutati.html">Noutăți</a>
-      <a href="despre.html">Despre</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
+  <div class="logo-container">
+    <img src="imagini/logo.png" alt="Logo" class="logo">
+    <span>In Her Eyes-Photography</span>
+  </div>
+</header>
+  <nav>
+    <a href="index.html">Acasă</a>
+    <a href="portofoliu.html">Portofoliu</a>
+    <a href="noutati.html">Noutăți</a>
+    <a href="despre.html">Despre</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <div class="gallery">
     <div class="gallery-item">
       <a href="galerie1.html"><img src="imagini/bucovinacop2.jpg" alt="Imagine 1"></a>
@@ -196,13 +142,6 @@
       <div class="caption">Ultramaraton APCA Galați 2025</div>
     </div>
   </div>
-
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('nav-menu').classList.toggle('active');
-    }
-  </script>
 </body>
 </html>
