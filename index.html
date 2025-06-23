@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galerie Foto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Baloo 2', cursive;
+      font-family: 'Poppins', sans-serif;
       background-color: #000;
       color: #fff;
     }
@@ -27,6 +27,7 @@
       background-color: #222;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 40px;
       padding: 15px;
       box-shadow: 0 2px 4px rgba(255,255,255,0.1);
@@ -78,8 +79,9 @@
       font-size: 1.1rem;
       color: #000;
       font-weight: 700;
-      font-family: 'Baloo 2', cursive;
+      font-family: 'Poppins', sans-serif;
     }
+
     footer {
       text-align: center;
       padding: 15px;
@@ -89,26 +91,44 @@
     }
 
     .logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
 
-.logo {
-  height: 110px;
-  width: auto;
-  object-fit: contain;
-}
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      nav a {
+        font-size: 1rem;
+        padding: 5px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        padding: 20px 10px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-  <div class="logo-container">
-    <img src="imagini/logo.png" alt="Logo" class="logo">
-    <span>In Her Eyes-Photography</span>
-  </div>
-</header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo">
+      <span>In Her Eyes-Photography</span>
+    </div>
+  </header>
+
   <nav>
     <a href="index.html">Acasă</a>
     <a href="portofoliu.html">Portofoliu</a>
@@ -116,6 +136,7 @@
     <a href="despre.html">Despre</a>
     <a href="contact.html">Contact</a>
   </nav>
+
   <div class="gallery">
     <div class="gallery-item">
       <a href="galerie1.html"><img src="imagini/bucovinacop2.jpg" alt="Imagine 1"></a>
@@ -142,8 +163,10 @@
       <div class="caption">Ultramaraton APCA Galați 2025</div>
     </div>
   </div>
+
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 </body>
 </html>
+
 
 
