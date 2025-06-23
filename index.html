@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galerie Foto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -15,41 +15,76 @@
 
     header {
       background-color: #111;
-      padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffb6c1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
       box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      flex-wrap: wrap;
     }
 
-    nav {
-      background-color: #222;
+    .logo-container {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      padding: 15px;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffb6c1;
+    }
+
+    nav.desktop-nav {
+      display: flex;
+      gap: 30px;
     }
 
     nav a {
       color: #ffb6c1;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
+      font-weight: 500;
+      font-size: 1rem;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      color: #ffb6c1;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background-color: #222;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .mobile-nav a {
+      font-size: 1.2rem;
+    }
+
     .gallery {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
       padding: 30px 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -78,8 +113,7 @@
       text-align: center;
       font-size: 1.1rem;
       color: #000;
-      font-weight: 700;
-      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
     }
 
     footer {
@@ -90,33 +124,17 @@
       margin-top: 40px;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .logo {
-      height: 110px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        flex-wrap: wrap;
-        gap: 20px;
+    @media (max-width: 768px) {
+      nav.desktop-nav {
+        display: none;
       }
 
-      nav a {
-        font-size: 1rem;
-        padding: 5px;
+      .hamburger {
+        display: block;
       }
 
-      .gallery {
-        grid-template-columns: 1fr;
-        padding: 20px 10px;
+      .mobile-nav.show {
+        display: flex;
       }
     }
   </style>
@@ -125,11 +143,19 @@
   <header>
     <div class="logo-container">
       <img src="imagini/logo.png" alt="Logo" class="logo">
-      <span>In Her Eyes-Photography</span>
+      <span class="site-title">In Her Eyes - Photography</span>
     </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <nav class="desktop-nav">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <nav>
+  <nav class="mobile-nav" id="mobileMenu">
     <a href="index.html">Acasă</a>
     <a href="portofoliu.html">Portofoliu</a>
     <a href="noutati.html">Noutăți</a>
@@ -165,8 +191,12 @@
   </div>
 
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
-
-
-
