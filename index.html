@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galerie Foto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Baloo 2', cursive;
       background-color: #000;
       color: #fff;
     }
@@ -78,9 +78,8 @@
       font-size: 1.1rem;
       color: #000;
       font-weight: 700;
-      font-family: 'Fredoka', cursive;
+      font-family: 'Baloo 2', cursive;
     }
-
     footer {
       text-align: center;
       padding: 15px;
@@ -88,13 +87,32 @@
       color: #ffb6c1;
       margin-top: 40px;
     }
+
+    .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.logo {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+}
   </style>
 </head>
 <body>
-  <header>In Her Eyes-Photography</header>
+  <header>
+  <div class="logo-container">
+    <img src="imagini/logo.png" alt="Logo" class="logo">
+    <span>In Her Eyes-Photography</span>
+  </div>
+</header>
   <nav>
     <a href="index.html">Acasă</a>
     <a href="portofoliu.html">Portofoliu</a>
+    <a href="noutati.html">Noutăți</a>
     <a href="despre.html">Despre</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -112,16 +130,16 @@
       <div class="caption">Concert Om la lună 2025 - Versus Pub Galați</div>
     </div>
     <div class="gallery-item">
+      <a href="galerie6.html"><img src="imagini/alexandra2.jpg" alt="Imagine 6"></a>
+      <div class="caption">Concert Alexandra Capitanescu 2025 - Shopping City Galați</div>
+    </div>
+    <div class="gallery-item">
       <a href="galerie4.html"><img src="imagini/gtr1.jpg" alt="Imagine 4"></a>
       <div class="caption">Gârboavele trail run Galați 2025</div>
     </div>
     <div class="gallery-item">
       <a href="galerie5.html"><img src="imagini/ultra1.jpg" alt="Imagine 5"></a>
       <div class="caption">Ultramaraton APCA Galați 2025</div>
-    </div>
-    <div class="gallery-item">
-      <a href="galerie6.html"><img src="https://source.unsplash.com/random/800x600?sig=6" alt="Imagine 6"></a>
-      <div class="caption">martisor</div>
     </div>
   </div>
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>

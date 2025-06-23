@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galerie Foto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffb6c1;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      display: flex;
+      align-items: center;
+      background-color: #ffb6c1;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.01);
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 140px;
+      object-fit: cover;
+      border-right: 3px solid #fff;
+    }
+
+    .caption {
+      padding: 10px 20px;
+      color: #000;
+      font-family: 'Baloo 2', cursive;
+    }
+
+    .caption h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .caption p {
+      margin: 4px 0 0 0;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #111;
+      color: #ffb6c1;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .gallery-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 3px solid #fff;
+      }
+
+      .caption {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span>In Her Eyes-Photography</span>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Acasă</a>
+    <a href="portofoliu.html">Portofoliu</a>
+    <a href="noutati.html">Noutăți</a>
+    <a href="despre.html">Despre</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <a href="galerie1.html"><img src="imagini/bucovinacop2.jpg" alt="Imagine 1" /></a>
+      <div class="caption">
+        <h3>Concert Bucovina 2025</h3>
+        <p>Versus Pub Galați</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <a href="galerie2.html"><img src="imagini/trooper1.jpg" alt="Imagine 2" /></a>
+      <div class="caption">
+        <h3>Concert Trooper 2025</h3>
+        <p>Versus Pub Galați</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <a href="galerie3.html"><img src="imagini/omluna1.jpg" alt="Imagine 3" /></a>
+      <div class="caption">
+        <h3>Concert Om la lună 2025</h3>
+        <p>Versus Pub Galați</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <a href="galerie4.html"><img src="imagini/gtr1.jpg" alt="Imagine 4" /></a>
+      <div class="caption">
+        <h3>Gârboavele Trail Run</h3>
+        <p>Galați 2025</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <a href="galerie5.html"><img src="imagini/ultra1.jpg" alt="Imagine 5" /></a>
+      <div class="caption">
+        <h3>Ultramaraton APCA</h3>
+        <p>Galați 2025</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <a href="galerie6.html"><img src="https://source.unsplash.com/random/800x600?sig=6" alt="Imagine 6" /></a>
+      <div class="caption">
+        <h3>Mărțișor</h3>
+        <p>Primăvară 2025</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
+</body>
+</html>
+
