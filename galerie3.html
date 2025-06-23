@@ -115,10 +115,37 @@
         column-count: 3;
       }
     }
+    .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.logo {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+}
+.content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-family: 'Fredoka', cursive;
+      color: #ffb6c1;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <header>Galerie foto <br> Concert Om la lună 2025 - Versus Pub Galați</header>
+  <header>
+  <div class="logo-container">
+    <img src="imagini/logo.png" alt="Logo" class="logo">
+    <span>In Her Eyes-Photography</span>
+  </div>
+</header>
   <nav>
     <a href="index.html">Acasă</a>
     <a href="portofoliu.html">Portofoliu</a>
@@ -126,6 +153,10 @@
     <a href="despre.html">Despre</a>
     <a href="contact.html">Contact</a>
   </nav>
+
+   <div class="content">
+    <h2>Galerie foto <br>Concert Om la lună 2025 - Versus Pub Galați</h2>
+    </div>
 
   <div class="gallery">
     <img data-src="imagini/omluna1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)">
