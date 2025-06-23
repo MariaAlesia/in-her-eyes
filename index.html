@@ -4,10 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galerie Foto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: 'Poppins', sans-serif;
       background-color: #000;
       color: #fff;
@@ -15,11 +20,10 @@
 
     header {
       background-color: #111;
+      padding: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 20px;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
       flex-wrap: wrap;
     }
 
@@ -27,21 +31,23 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      margin: 0 auto;
     }
 
     .logo {
-      height: 60px;
+      height: 80px;
       width: auto;
       object-fit: contain;
     }
 
-    .site-title {
-      font-size: 1.5rem;
-      font-weight: 600;
+    .title {
+      font-family: 'Kanit', sans-serif;
+      font-weight: 100;
+      font-size: 1.8rem;
       color: #ffb6c1;
     }
 
-    nav.desktop-nav {
+    nav {
       display: flex;
       gap: 30px;
     }
@@ -49,42 +55,31 @@
     nav a {
       color: #ffb6c1;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
+      font-weight: bold;
+      font-size: 1.05rem;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    .hamburger {
+    .menu-toggle {
       display: none;
       font-size: 2rem;
-      color: #ffb6c1;
-      background: none;
-      border: none;
       cursor: pointer;
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      background-color: #222;
-      gap: 20px;
-      padding: 20px 0;
-    }
-
-    .mobile-nav a {
-      font-size: 1.2rem;
+      color: #ffb6c1;
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      z-index: 1000;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
       padding: 30px 20px;
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -113,7 +108,7 @@
       text-align: center;
       font-size: 1.1rem;
       color: #000;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     footer {
@@ -124,17 +119,37 @@
       margin-top: 40px;
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
-      nav.desktop-nav {
+      nav {
         display: none;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #111;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 20px;
       }
 
-      .hamburger {
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
         display: block;
       }
 
-      .mobile-nav.show {
-        display: flex;
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      header {
+        justify-content: center;
+        position: relative;
       }
     }
   </style>
@@ -142,11 +157,11 @@
 <body>
   <header>
     <div class="logo-container">
-      <img src="imagini/logo.png" alt="Logo" class="logo">
-      <span class="site-title">In Her Eyes - Photography</span>
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="title">In Her Eyes - Photography</span>
     </div>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-    <nav class="desktop-nav">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav-menu">
       <a href="index.html">Acasă</a>
       <a href="portofoliu.html">Portofoliu</a>
       <a href="noutati.html">Noutăți</a>
@@ -154,14 +169,6 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-
-  <nav class="mobile-nav" id="mobileMenu">
-    <a href="index.html">Acasă</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="noutati.html">Noutăți</a>
-    <a href="despre.html">Despre</a>
-    <a href="contact.html">Contact</a>
-  </nav>
 
   <div class="gallery">
     <div class="gallery-item">
@@ -194,8 +201,7 @@
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('show');
+      document.getElementById('nav-menu').classList.toggle('active');
     }
   </script>
 </body>
