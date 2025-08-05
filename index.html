@@ -21,6 +21,7 @@
       font-weight: bold;
       color: #ffb6c1;
       box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      position: relative;
     }
 
     nav {
@@ -80,6 +81,7 @@
       font-weight: 700;
       font-family: 'Baloo 2', cursive;
     }
+
     footer {
       text-align: center;
       padding: 15px;
@@ -89,26 +91,74 @@
     }
 
     .logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
 
-.logo {
-  height: 110px;
-  width: auto;
-  object-fit: contain;
-}
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Hamburger menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 15px;
+      position: absolute;
+      right: 20px;
+      top: 25px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        background-color: #222;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      header {
+        padding-bottom: 60px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-  <div class="logo-container">
-    <img src="imagini/logo.png" alt="Logo" class="logo">
-    <span>In Her Eyes-Photography</span>
-  </div>
-</header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo">
+      <span>In Her Eyes-Photography</span>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
   <nav>
     <a href="index.html">Acasă</a>
     <a href="portofoliu.html">Portofoliu</a>
@@ -116,6 +166,7 @@
     <a href="despre.html">Despre</a>
     <a href="contact.html">Contact</a>
   </nav>
+
   <div class="gallery">
     <div class="gallery-item">
       <a href="galerie1.html"><img src="imagini/bucovinacop2.jpg" alt="Imagine 1"></a>
@@ -142,6 +193,13 @@
       <div class="caption">Ultramaraton APCA Galați 2025</div>
     </div>
   </div>
+
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
