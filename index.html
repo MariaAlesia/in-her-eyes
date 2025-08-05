@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Galerie Foto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -17,11 +17,30 @@
       background-color: #111;
       padding: 20px;
       text-align: center;
-      font-size: 1.5rem; /* Titlul e acum mai mic */
+      font-size: 2rem;
       font-weight: bold;
       color: #ffb6c1;
       box-shadow: 0 2px 4px rgba(255,255,255,0.1);
-      position: relative;
+      position: relative; /* pentru poziționarea hamburgerului */
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Numele site-ului din header */
+    .site-name {
+      margin-left: 10px;
+      display: inline-block;
     }
 
     nav {
@@ -31,6 +50,7 @@
       gap: 40px;
       padding: 15px;
       box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      transition: max-height 0.3s ease;
     }
 
     nav a {
@@ -90,75 +110,83 @@
       margin-top: 40px;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
 
-    .logo {
-      height: 110px;
-      width: auto;
-      object-fit: contain;
-    }
+    /* --- Stiluri pentru hamburger --- */
 
-    /* Hamburger menu */
+    /* Ascundem hamburgerul implicit */
     .hamburger {
       display: none;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
       flex-direction: column;
       cursor: pointer;
-      padding: 15px;
-      position: absolute;
-      right: 20px;
-      top: 90px; /* Am mutat butonul mai jos, astfel încât să nu se suprapună cu titlul */
+      width: 30px;
+      height: 25px;
+      justify-content: space-between;
+      z-index: 10;
     }
 
     .hamburger span {
+      display: block;
       height: 3px;
-      width: 25px;
       background: #ffb6c1;
-      margin: 4px 0;
-      transition: 0.4s;
+      border-radius: 2px;
     }
 
+    /* La mobil: ascundem numele site-ului, arătăm hamburgerul, ascundem meniul inițial */
     @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 20px 0;
-        background-color: #222;
+      header {
+        padding: 10px 20px;
+        text-align: center; /* logo centrat */
       }
 
-      nav.active {
-        display: flex;
+      .site-name {
+        display: none;
+      }
+
+      nav {
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        transition: max-height 0.3s ease;
+      }
+
+      nav a {
+        padding: 15px 20px;
+        border-top: 1px solid #333;
+        font-size: 1.2rem;
       }
 
       .hamburger {
         display: flex;
       }
 
-      /* Dacă vrei să ajustezi în continuare fontul pe mobil poți adăuga: */
-      /* header { font-size: 1.3rem; } */
+      nav.open {
+        max-height: 500px; /* suficient să se vadă tot meniul */
+        padding: 10px 0;
+        box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo-container">
-      <img src="imagini/logo.png" alt="Logo" class="logo">
-      <span>In Her Eyes-Photography</span>
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-name">In Her Eyes-Photography</span>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">
+    <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
     </div>
   </header>
 
-  <nav>
+  <nav id="nav-menu">
     <a href="index.html">Acasă</a>
     <a href="portofoliu.html">Portofoliu</a>
     <a href="noutati.html">Noutăți</a>
@@ -168,27 +196,27 @@
 
   <div class="gallery">
     <div class="gallery-item">
-      <a href="galerie1.html"><img src="imagini/bucovinacop2.jpg" alt="Imagine 1"></a>
+      <a href="galerie1.html"><img src="imagini/bucovinacop2.jpg" alt="Imagine 1" /></a>
       <div class="caption">Concert Bucovina 2025 - Versus Pub Galați</div>
     </div>
     <div class="gallery-item">
-      <a href="galerie2.html"><img src="imagini/trooper1.jpg" alt="Imagine 2"></a>
+      <a href="galerie2.html"><img src="imagini/trooper1.jpg" alt="Imagine 2" /></a>
       <div class="caption">Concert Trooper 2025 - Versus Pub Galați</div>
     </div>
     <div class="gallery-item">
-      <a href="galerie3.html"><img src="imagini/omluna1.jpg" alt="Imagine 3"></a>
+      <a href="galerie3.html"><img src="imagini/omluna1.jpg" alt="Imagine 3" /></a>
       <div class="caption">Concert Om la lună 2025 - Versus Pub Galați</div>
     </div>
     <div class="gallery-item">
-      <a href="galerie6.html"><img src="imagini/alexandra2.jpg" alt="Imagine 6"></a>
+      <a href="galerie6.html"><img src="imagini/alexandra2.jpg" alt="Imagine 6" /></a>
       <div class="caption">Concert Alexandra Capitanescu 2025 - Shopping City Galați</div>
     </div>
     <div class="gallery-item">
-      <a href="galerie4.html"><img src="imagini/gtr1.jpg" alt="Imagine 4"></a>
+      <a href="galerie4.html"><img src="imagini/gtr1.jpg" alt="Imagine 4" /></a>
       <div class="caption">Gârboavele trail run Galați 2025</div>
     </div>
     <div class="gallery-item">
-      <a href="galerie5.html"><img src="imagini/ultra1.jpg" alt="Imagine 5"></a>
+      <a href="galerie5.html"><img src="imagini/ultra1.jpg" alt="Imagine 5" /></a>
       <div class="caption">Ultramaraton APCA Galați 2025</div>
     </div>
   </div>
@@ -196,10 +224,15 @@
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 
   <script>
-    function toggleMenu() {
-      document.querySelector('nav').classList.toggle('active');
-    }
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
+
+
 
