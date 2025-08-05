@@ -9,21 +9,54 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
       font-family: 'Baloo 2', cursive;
       background-color: #000;
       color: #fff;
     }
 
-     header {
+    header {
       background-color: #111;
       padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffb6c1;
       box-shadow: 0 2px 4px rgba(255,255,255,0.1);
     }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
     nav {
       background-color: #222;
       display: flex;
@@ -88,40 +121,60 @@
     button:hover {
       background-color: #ffa5b5;
     }
-      footer {
+
+    footer {
       text-align: center;
       padding: 15px;
       background-color: #111;
       color: #ffb6c1;
       margin-top: 40px;
     }
-     .logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
 
-.logo {
-  height: 110px;
-  width: auto;
-  object-fit: contain;
-}
+    @media (max-width: 768px) {
+      .site-title {
+        display: none;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-  <div class="logo-container">
-    <img src="imagini/logo.png" alt="Logo" class="logo">
-    <span>In Her Eyes-Photography</span>
-  </div>
-  <nav>
-    <a href="index.html">Acasă</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="noutati.html">Noutăți</a>
-    <a href="despre.html">Despre</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo">
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
   <div class="contact-form">
     <h2>Contactează-mă</h2>
@@ -142,7 +195,15 @@
   </div>
 
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
+
 
 

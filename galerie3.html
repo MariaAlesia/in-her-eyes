@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Concert Om la lună 2025 - Versus Pub Galați</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -14,36 +14,102 @@
       color: #fff;
     }
 
+    /* HEADER cu logo, nume si hamburger */
     header {
       background-color: #111;
-      padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffb6c1;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #ffb6c1;
+      font-weight: 700;
+      font-size: 1.6rem;
+      user-select: none;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* MENIU NAV */
     nav {
       background-color: #222;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
       display: flex;
       justify-content: center;
       gap: 40px;
-      padding: 15px;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
     }
 
-    nav a {
+    nav ul li a {
+      display: block;
+      padding: 15px 10px;
       color: #ffb6c1;
-      text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
+      text-decoration: none;
+      user-select: none;
     }
 
-    nav a:hover {
+    nav ul li a:hover {
       text-decoration: underline;
     }
 
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 28px;
+      height: 22px;
+      justify-content: space-between;
+    }
+
+    .hamburger div {
+      background-color: #ffb6c1;
+      height: 3px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Responsive - pentru telefoane */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        display: none;
+        gap: 0;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      nav ul li a {
+        padding: 12px 20px;
+        border-top: 1px solid #333;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Galerie foto */
     .gallery {
       column-count: 2;
       column-gap: 15px;
@@ -70,7 +136,7 @@
     .lightbox {
       display: none;
       position: fixed;
-      z-index: 1;
+      z-index: 1000;
       padding-top: 50px;
       left: 0;
       top: 0;
@@ -94,6 +160,7 @@
       font-size: 40px;
       font-weight: bold;
       cursor: pointer;
+      user-select: none;
     }
 
     footer {
@@ -115,19 +182,8 @@
         column-count: 3;
       }
     }
-    .logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
 
-.logo {
-  height: 110px;
-  width: auto;
-  object-fit: contain;
-}
-.content {
+    .content {
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
@@ -136,98 +192,127 @@
       font-family: 'Fredoka', cursive;
       color: #ffb6c1;
       text-align: center;
+      user-select: none;
     }
   </style>
 </head>
 <body>
   <header>
-  <div class="logo-container">
-    <img src="imagini/logo.png" alt="Logo" class="logo">
-    <span>In Her Eyes-Photography</span>
-  </div>
-</header>
-  <nav>
-    <a href="index.html">Acasă</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="noutati.html">Noutăți</a>
-    <a href="despre.html">Despre</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-   <div class="content">
-    <h2>Galerie foto <br>Concert Om la lună 2025 - Versus Pub Galați</h2>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span>In Her Eyes-Photography</span>
     </div>
 
+    <div class="hamburger" id="hamburger" aria-label="Meniu mobil" role="button" tabindex="0">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="portofoliu.html">Portofoliu</a></li>
+      <li><a href="noutati.html">Noutăți</a></li>
+      <li><a href="despre.html">Despre</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <h2>Galerie foto <br />Concert Om la lună 2025 - Versus Pub Galați</h2>
+  </div>
+
   <div class="gallery">
-    <img data-src="imagini/omluna1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna2.jpg" alt="Imagine 2" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna3.jpg" alt="Imagine 3" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna4.jpg" alt="Imagine 4" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna5.jpg" alt="Imagine 5" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna6.jpg" alt="Imagine 6" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna7.jpg" alt="Imagine 7" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna8.jpg" alt="Imagine 8" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna9.jpg" alt="Imagine 9" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna10.jpg" alt="Imagine 10" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna11.jpg" alt="Imagine 11" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna12.jpg" alt="Imagine 12" class="lazy-load" onclick="openLightbox(this)"> 
-    <img data-src="imagini/omluna14.jpg" alt="Imagine 14" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna16.jpg" alt="Imagine 16" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna17.jpg" alt="Imagine 17" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna18.jpg" alt="Imagine 18" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna19.jpg" alt="Imagine 19" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna20.jpg" alt="Imagine 20" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna21.jpg" alt="Imagine 21" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna22.jpg" alt="Imagine 22" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna23.jpg" alt="Imagine 23" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna24.jpg" alt="Imagine 24" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna25.jpg" alt="Imagine 25" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna26.jpg" alt="Imagine 26" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna27.jpg" alt="Imagine 27" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna28.jpg" alt="Imagine 28" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna29.jpg" alt="Imagine 29" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna30.jpg" alt="Imagine 30" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna31.jpg" alt="Imagine 31" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna32.jpg" alt="Imagine 32" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna33.jpg" alt="Imagine 33" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna34.jpg" alt="Imagine 34" class="lazy-load" onclick="openLightbox(this)">
-
+    <img data-src="imagini/omluna1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna2.jpg" alt="Imagine 2" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna3.jpg" alt="Imagine 3" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna4.jpg" alt="Imagine 4" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna5.jpg" alt="Imagine 5" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna6.jpg" alt="Imagine 6" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna7.jpg" alt="Imagine 7" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna8.jpg" alt="Imagine 8" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna9.jpg" alt="Imagine 9" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna10.jpg" alt="Imagine 10" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna11.jpg" alt="Imagine 11" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna12.jpg" alt="Imagine 12" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna14.jpg" alt="Imagine 14" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna16.jpg" alt="Imagine 16" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna17.jpg" alt="Imagine 17" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna18.jpg" alt="Imagine 18" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna19.jpg" alt="Imagine 19" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna20.jpg" alt="Imagine 20" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna21.jpg" alt="Imagine 21" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna22.jpg" alt="Imagine 22" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna23.jpg" alt="Imagine 23" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna24.jpg" alt="Imagine 24" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna25.jpg" alt="Imagine 25" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna26.jpg" alt="Imagine 26" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna27.jpg" alt="Imagine 27" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna28.jpg" alt="Imagine 28" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna29.jpg" alt="Imagine 29" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna30.jpg" alt="Imagine 30" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna31.jpg" alt="Imagine 31" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna32.jpg" alt="Imagine 32" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna33.jpg" alt="Imagine 33" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/omluna34.jpg" alt="Imagine 34" class="lazy-load" onclick="openLightbox(this)" />
   </div>
 
-  <div id="lightbox" class="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-image" src="" alt="">
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-label">
+    <span class="close" onclick="closeLightbox()" aria-label="Închide">&times;</span>
+    <img id="lightbox-image" src="" alt="" />
   </div>
-
-
 
   <script>
+    // Toggle meniu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    // Toggle și cu Enter pentru accesibilitate
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        navMenu.classList.toggle('show');
+        e.preventDefault();
+      }
+    });
+
+    // Lazy load imagini
     const lazyImages = document.querySelectorAll('.lazy-load');
     const loadImages = () => {
-      lazyImages.forEach(image => {
+      lazyImages.forEach((image) => {
         if (image.getBoundingClientRect().top < window.innerHeight) {
           image.src = image.getAttribute('data-src');
           image.classList.remove('lazy-load');
         }
       });
     };
-
     window.addEventListener('scroll', loadImages);
     window.addEventListener('load', loadImages);
     loadImages();
 
+    // Lightbox
     function openLightbox(img) {
-      var lightbox = document.getElementById('lightbox');
-      var lightboxImage = document.getElementById('lightbox-image');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
       lightbox.style.display = 'block';
       lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
     }
 
     function closeLightbox() {
-      var lightbox = document.getElementById('lightbox');
+      const lightbox = document.getElementById('lightbox');
       lightbox.style.display = 'none';
+      const lightboxImage = document.getElementById('lightbox-image');
+      lightboxImage.src = '';
+      lightboxImage.alt = '';
     }
   </script>
-   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
+
+  <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 </body>
 </html>

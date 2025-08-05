@@ -21,7 +21,7 @@
       font-weight: bold;
       color: #ffb6c1;
       box-shadow: 0 2px 4px rgba(255,255,255,0.1);
-      position: relative; /* pentru poziționarea hamburgerului */
+      position: relative; 
     }
 
     .logo-container {
@@ -37,7 +37,7 @@
       object-fit: contain;
     }
 
-    /* Numele site-ului din header */
+    
     .site-name {
       margin-left: 10px;
       display: inline-block;
@@ -111,9 +111,6 @@
     }
 
 
-    /* --- Stiluri pentru hamburger --- */
-
-    /* Ascundem hamburgerul implicit */
     .hamburger {
       display: none;
       position: absolute;
@@ -135,11 +132,10 @@
       border-radius: 2px;
     }
 
-    /* La mobil: ascundem numele site-ului, arătăm hamburgerul, ascundem meniul inițial */
     @media (max-width: 768px) {
       header {
         padding: 10px 20px;
-        text-align: center; /* logo centrat */
+        text-align: center; 
       }
 
       .site-name {
@@ -166,7 +162,7 @@
       }
 
       nav.open {
-        max-height: 500px; /* suficient să se vadă tot meniul */
+        max-height: 500px; 
         padding: 10px 0;
         box-shadow: 0 2px 4px rgba(255,255,255,0.1);
       }
