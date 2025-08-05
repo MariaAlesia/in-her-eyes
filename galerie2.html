@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gârboavele trail run Galați 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Baloo 2', cursive;
       background-color: #000;
       color: #fff;
     }
@@ -16,11 +17,44 @@
     header {
       background-color: #111;
       padding: 20px;
-      text-align: center;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
       font-size: 2rem;
       font-weight: bold;
-      color: #ffb6c1;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
     }
 
     nav {
@@ -29,7 +63,6 @@
       justify-content: center;
       gap: 40px;
       padding: 15px;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
     }
 
     nav a {
@@ -41,6 +74,17 @@
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-family: 'Fredoka', cursive;
+      color: #ffb6c1;
+      text-align: center;
     }
 
     .gallery {
@@ -104,6 +148,29 @@
     }
 
     @media (max-width: 768px) {
+      .site-title {
+        display: none;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
+      }
+
       .gallery {
         column-count: 1;
       }
@@ -114,67 +181,54 @@
         column-count: 3;
       }
     }
-    .logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.logo {
-  height: 110px;
-  width: auto;
-  object-fit: contain;
-}
-.content {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      font-family: 'Fredoka', cursive;
-      color: #ffb6c1;
-      text-align: center;
-    }
   </style>
 </head>
 <body>
   <header>
-  <div class="logo-container">
-    <img src="imagini/logo.png" alt="Logo" class="logo">
-    <span>In Her Eyes-Photography</span>
-  </div>
-</header>
-  <nav>
-    <a href="index.html">Acasă</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="noutati.html">Noutăți</a>
-    <a href="despre.html">Despre</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-   <div class="content">
-    <h2>Galerie foto <br> Gârboavele trail run Galați 2025</h2>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h2>Galerie foto <br />Gârboavele Trail Run Galați 2025</h2>
+  </div>
 
   <div class="gallery">
-    <img data-src="imagini/gtr1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/gtr2.jpg" alt="Imagine 2" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/gtr3.jpg" alt="Imagine 3" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/gtr4.jpg" alt="Imagine 4" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/gtr5.jpg" alt="Imagine 5" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/gtr6.jpg" alt="Imagine 6" class="lazy-load" onclick="openLightbox(this)">
-   
+    <img data-src="imagini/gtr1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/gtr2.jpg" alt="Imagine 2" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/gtr3.jpg" alt="Imagine 3" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/gtr4.jpg" alt="Imagine 4" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/gtr5.jpg" alt="Imagine 5" class="lazy-load" onclick="openLightbox(this)" />
+    <img data-src="imagini/gtr6.jpg" alt="Imagine 6" class="lazy-load" onclick="openLightbox(this)" />
   </div>
 
   <div id="lightbox" class="lightbox">
     <span class="close" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-image" src="" alt="">
+    <img id="lightbox-image" src="" alt=""/>
   </div>
 
-
+  <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 
   <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
+    }
+
     const lazyImages = document.querySelectorAll('.lazy-load');
     const loadImages = () => {
       lazyImages.forEach(image => {
@@ -201,6 +255,6 @@
       lightbox.style.display = 'none';
     }
   </script>
-   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 </body>
 </html>
+

@@ -14,35 +14,46 @@
     }
 
     header {
-      background-color: #111;
-      padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffb6c1;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      background-color: #111; /* negru */
+      padding: 10px 20px;
+      position: relative;
     }
 
     .logo-container {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 12px;
+      align-items: center;
+      position: relative;
     }
 
     .logo {
-      height: 110px;
+      height: 120px;
       width: auto;
       object-fit: contain;
     }
 
+    .logo-text {
+      display: inline;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffb6c1;
+      margin-left: 12px;
+    }
+
     nav {
-      background-color: #222;
+      background-color: #444; /* gri fundal meniului desktop */
       display: flex;
       justify-content: center;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
       gap: 40px;
-      padding: 15px;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
     }
 
     nav a {
@@ -54,6 +65,59 @@
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background-color: #111; /* negru fundal hamburger */
+      padding: 5px;
+      border-radius: 4px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .logo-text {
+        display: none;
+      }
+
+      nav {
+        background-color: transparent; /* transparent pe mobil, ca bara sa fie neagra */
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center; /* centrat pe orizontal */
+        width: 100%;
+        display: none;
+        padding-top: 10px;
+        background-color: #444; /* gri fundal meniului mobil deschis */
+        margin: 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+        padding: 10px 0;
+      }
     }
 
     .gallery {
@@ -128,25 +192,31 @@
         padding: 10px;
       }
     }
-
   </style>
 </head>
 <body>
   <header>
     <div class="logo-container">
       <img src="imagini/logo.png" alt="Logo" class="logo" />
-      <span>In Her Eyes-Photography</span>
+      <span class="logo-text">In Her Eyes-Photography</span>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </header>
 
   <nav>
-    <a href="index.html">Acasă</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="noutati.html">Noutăți</a>
-    <a href="despre.html">Despre</a>
-    <a href="contact.html">Contact</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </nav>
-comming soon
+
   <div class="gallery">
     <div class="gallery-item">
       <a href="galerie1.html"><img src="imagini/bucovinacop2.jpg" alt="Imagine 1" /></a>
@@ -193,6 +263,19 @@ comming soon
   </div>
 
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
+
+
+
+
+
+
 

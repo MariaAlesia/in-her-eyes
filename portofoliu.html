@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portofoliu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -16,20 +16,44 @@
     header {
       background-color: #111;
       padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffb6c1;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      /* pe mobil center, pe desktop rămâne normal */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
     }
 
+    /* Container pentru logo + titlu */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      font-size: 2rem;
+      color: #ffb6c1;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Titlul (span) */
+    .logo-container span {
+      display: inline-block;
+    }
+
+    /* Navigația desktop */
     nav {
       background-color: #222;
       display: flex;
       justify-content: center;
       gap: 40px;
       padding: 15px;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
     }
 
     nav a {
@@ -37,10 +61,94 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
+      transition: color 0.3s ease;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a:focus {
       text-decoration: underline;
+      color: #ff9ab8;
+      outline: none;
+    }
+
+    /* Hamburger (ascuns pe desktop) */
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      z-index: 10001;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger div {
+      height: 4px;
+      background-color: #ffb6c1;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Stiluri meniului mobil ascuns implicit */
+    nav.mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 250px;
+      background-color: #222;
+      flex-direction: column;
+      padding-top: 80px;
+      box-shadow: -3px 0 10px rgba(0,0,0,0.7);
+      z-index: 10000;
+      overflow-y: auto;
+    }
+
+    nav.mobile-menu a {
+      padding: 15px 30px;
+      border-bottom: 1px solid #333;
+      font-size: 1.3rem;
+    }
+
+    /* Cand meniul e activ, il aratam */
+    nav.mobile-menu.active {
+      display: flex;
+    }
+
+    /* Schimbări la mobil */
+    @media (max-width: 768px) {
+      header {
+        justify-content: center !important;
+      }
+
+      /* Logo container: doar logo, centrat */
+      .logo-container span {
+        display: none; /* ascundem titlul */
+      }
+
+      nav {
+        display: none; /* ascundem meniul normal */
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Galerie și restul rămân nemodificate */
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-family: 'Fredoka', cursive;
+      color: #ffb6c1;
+      text-align: center;
     }
 
     .gallery {
@@ -58,31 +166,35 @@
       border-radius: 12px;
       display: block;
       box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease;
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    .gallery img:hover {
+    .gallery img:hover,
+    .gallery img:focus {
       transform: scale(1.03);
+      outline: none;
     }
 
     .lightbox {
       display: none;
       position: fixed;
-      z-index: 1;
-      padding-top: 50px;
-      left: 0;
+      z-index: 9999;
       top: 0;
-      width: 100%;
-      height: 100%;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background-color: rgba(0, 0, 0, 0.9);
       text-align: center;
+      padding-top: 50px;
     }
 
     .lightbox img {
       max-width: 90%;
       max-height: 80%;
       margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 0 30px #ffb6c1aa;
     }
 
     .lightbox .close {
@@ -93,6 +205,7 @@
       font-size: 40px;
       font-weight: bold;
       cursor: pointer;
+      user-select: none;
     }
 
     footer {
@@ -101,6 +214,7 @@
       background-color: #111;
       color: #ffb6c1;
       margin-top: 40px;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 768px) {
@@ -114,37 +228,17 @@
         column-count: 3;
       }
     }
-      .content {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      font-family: 'Fredoka', cursive;
-      color: #ffb6c1;
-      text-align: center;
-    }
-      .logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.logo {
-  height: 110px;
-  width: auto;
-  object-fit: contain;
-}
   </style>
 </head>
 <body>
   <header>
-  <div class="logo-container">
-    <img src="imagini/logo.png" alt="Logo" class="logo">
-    <span>In Her Eyes-Photography</span>
-  </div>
-</header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span>In Her Eyes-Photography</span>
+    </div>
+  </header>
+
+  <!-- Meniul desktop normal -->
   <nav>
     <a href="index.html">Acasă</a>
     <a href="portofoliu.html">Portofoliu</a>
@@ -153,76 +247,133 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-   <div class="content">
-    <h2>Portofoliu</h2>
-    </div>
-
-  <div class="gallery">
-    <img data-src="imagini/bucovina1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/bucovina3.jpg" alt="Imagine 2" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/bucovina4.jpg" alt="Imagine 3" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/bucovina7.jpg" alt="Imagine 4" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/bucovina5.jpg" alt="Imagine 5" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/bucovina9.jpg" alt="Imagine 6" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/bucovina10.jpg" alt="Imagine 7" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/bucovina11.jpg" alt="Imagine 8" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/bucovina19.jpg" alt="Imagine 9" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/trooper1.jpg" alt="Imagine 11" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/trooper2.jpg" alt="Imagine 12" class="lazy-load" onclick="openLightbox(this)"> 
-    <img data-src="imagini/trooper3.jpg" alt="Imagine 13" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/trooper4.jpg" alt="Imagine 14" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/trooper6.jpg" alt="Imagine 17" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/trooper8.jpg" alt="Imagine 19" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/trooper9.jpg" alt="Imagine 20" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/trooper11.jpg" alt="Imagine 21" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/trooper20.jpg" alt="Imagine 22" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna1.jpg" alt="Imagine 21" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna6.jpg" alt="Imagine 22" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna9.jpg" alt="Imagine 23" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna10.jpg" alt="Imagine 24" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna14.jpg" alt="Imagine 25" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna15.jpg" alt="Imagine 26" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna20.jpg" alt="Imagine 27" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/omluna28.jpg" alt="Imagine 28" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/alexandra2.jpg" alt="Imagine 23" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/alexandra3.jpg" alt="Imagine 24" class="lazy-load" onclick="openLightbox(this)">
-    <img data-src="imagini/alexandra4.jpg" alt="Imagine 25" class="lazy-load" onclick="openLightbox(this)">
-  </div> 
-
-  <div id="lightbox" class="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-image" src="" alt="">
+  <!-- Hamburger pentru mobil -->
+  <div class="hamburger" aria-label="Meniu mobil" role="button" tabindex="0" aria-expanded="false" aria-controls="mobile-menu">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 
+  <!-- Meniul mobil (ascuns implicit) -->
+  <nav id="mobile-menu" class="mobile-menu" role="menu" aria-hidden="true">
+    <a href="index.html" role="menuitem" tabindex="-1">Acasă</a>
+    <a href="portofoliu.html" role="menuitem" tabindex="-1">Portofoliu</a>
+    <a href="noutati.html" role="menuitem" tabindex="-1">Noutăți</a>
+    <a href="despre.html" role="menuitem" tabindex="-1">Despre</a>
+    <a href="contact.html" role="menuitem" tabindex="-1">Contact</a>
+  </nav>
 
+  <div class="content">
+    <h2>Portofoliu</h2>
+  </div>
+
+  <div class="gallery" aria-label="Galerie foto">
+    <!-- Imaginile încărcate lazy -->
+    <img data-src="imagini/bucovina1.jpg" alt="Peisaj Bucovina 1" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/bucovina3.jpg" alt="Peisaj Bucovina 3" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/bucovina4.jpg" alt="Peisaj Bucovina 4" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/bucovina7.jpg" alt="Peisaj Bucovina 7" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/bucovina5.jpg" alt="Peisaj Bucovina 5" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/bucovina9.jpg" alt="Peisaj Bucovina 9" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/bucovina10.jpg" alt="Peisaj Bucovina 10" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/bucovina11.jpg" alt="Peisaj Bucovina 11" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/bucovina19.jpg" alt="Peisaj Bucovina 19" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/trooper1.jpg" alt="Trooper 1" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/trooper2.jpg" alt="Trooper 2" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/trooper3.jpg" alt="Trooper 3" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/trooper4.jpg" alt="Trooper 4" class="lazy-load" tabindex="0" />
+    <img data-src="imagini/trooper6.jpg" alt="Trooper 6" class="lazy-load" tabindex="0" />
+  </div>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Vizualizare imagine mare">
+    <span class="close" role="button" tabindex="0" aria-label="Închide">&times;</span>
+    <img src="" alt="" />
+  </div>
+
+  <footer>
+    <p>In Her Eyes Photography &copy; 2025. Toate drepturile rezervate.</p>
+  </footer>
 
   <script>
-    const lazyImages = document.querySelectorAll('.lazy-load');
-    const loadImages = () => {
-      lazyImages.forEach(image => {
-        if (image.getBoundingClientRect().top < window.innerHeight) {
-          image.src = image.getAttribute('data-src');
-          image.classList.remove('lazy-load');
+    // Lazy load imagini
+    document.addEventListener("DOMContentLoaded", function() {
+      const lazyImages = document.querySelectorAll("img.lazy-load");
+      lazyImages.forEach(img => {
+        img.src = img.dataset.src;
+      });
+    });
+
+    // Lightbox simplu
+    const lightbox = document.querySelector(".lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    const closeBtn = lightbox.querySelector(".close");
+    const galleryImgs = document.querySelectorAll(".gallery img");
+
+    galleryImgs.forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.style.display = "block";
+        lightbox.setAttribute("aria-hidden", "false");
+        closeBtn.focus();
+      });
+      img.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          img.click();
         }
       });
-    };
+    });
 
-    window.addEventListener('scroll', loadImages);
-    window.addEventListener('load', loadImages);
-    loadImages();
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+      lightbox.setAttribute("aria-hidden", "true");
+    });
+    closeBtn.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        closeBtn.click();
+      }
+    });
 
-    function openLightbox(img) {
-      var lightbox = document.getElementById('lightbox');
-      var lightboxImage = document.getElementById('lightbox-image');
-      lightbox.style.display = 'block';
-      lightboxImage.src = img.src;
-    }
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeBtn.click();
+      }
+    });
 
-    function closeLightbox() {
-      var lightbox = document.getElementById('lightbox');
-      lightbox.style.display = 'none';
-    }
+    // Hamburger menu toggle
+    const hamburger = document.querySelector(".hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    hamburger.addEventListener("click", () => {
+      const isActive = mobileMenu.classList.toggle("active");
+      hamburger.setAttribute("aria-expanded", isActive);
+      mobileMenu.setAttribute("aria-hidden", !isActive);
+      if (isActive) {
+        // Focusează primul link din meniu la deschidere
+        mobileMenu.querySelector("a").focus();
+      } else {
+        hamburger.focus();
+      }
+    });
+
+    // Accesibilitate: toggle cu Enter/Space la hamburger
+    hamburger.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        hamburger.click();
+      }
+    });
+
+    // La redimensionare, dacă ecranul e mai mare, ascundem meniul mobil
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        mobileMenu.classList.remove("active");
+        mobileMenu.setAttribute("aria-hidden", "true");
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+    });
   </script>
-   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 </body>
 </html>

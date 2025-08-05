@@ -3,24 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Concert Alexandra Capitanescu 2025 - Shopping City Galați</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <title>Galerie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Baloo 2', cursive;
       background-color: #000;
       color: #fff;
     }
 
     header {
       background-color: #111;
-      padding: 20px;
-      text-align: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      position: relative;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .logo {
+      height: 130px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
       font-size: 2rem;
       font-weight: bold;
-      color: #ffb6c1;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      margin-left: 12px;
+      display: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
     }
 
     nav {
@@ -29,7 +66,6 @@
       justify-content: center;
       gap: 40px;
       padding: 15px;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
     }
 
     nav a {
@@ -43,56 +79,35 @@
       text-decoration: underline;
     }
 
-    .gallery {
-      column-count: 2;
-      column-gap: 15px;
-      padding: 30px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .galerie {
+      display: grid;
+      gap: 20px;
+      padding: 40px 20px;
     }
 
-    .gallery img {
+    .galerie img {
       width: 100%;
       height: auto;
-      margin-bottom: 15px;
-      border-radius: 12px;
-      display: block;
-      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease;
+      border-radius: 8px;
       cursor: pointer;
     }
 
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
     .lightbox {
-      display: none;
       position: fixed;
-      z-index: 1;
-      padding-top: 50px;
-      left: 0;
       top: 0;
-      width: 100%;
-      height: 100%;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background-color: rgba(0, 0, 0, 0.9);
-      text-align: center;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
     }
 
     .lightbox img {
       max-width: 90%;
-      max-height: 80%;
-      margin: 0 auto;
-    }
-
-    .lightbox .close {
-      position: absolute;
-      top: 15px;
-      right: 35px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
+      max-height: 90%;
     }
 
     footer {
@@ -100,106 +115,127 @@
       padding: 15px;
       background-color: #111;
       color: #ffb6c1;
-      margin-top: 40px;
+    }
+
+    @media (min-width: 769px) {
+      .site-title {
+        display: inline-block;
+      }
+
+      nav {
+        display: flex !important;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .galerie {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
-      .gallery {
-        column-count: 1;
+      .site-title {
+        display: none;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .galerie {
+        grid-template-columns: 1fr;
       }
     }
-
-    @media (min-width: 1025px) {
-      .gallery {
-        column-count: 3;
-      }
-    }
-       .content {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      font-family: 'Fredoka', cursive;
-      color: #ffb6c1;
-      text-align: center;
-    }
- .logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.logo {
-  height: 110px;
-  width: auto;
-  object-fit: contain;
-}
   </style>
 </head>
 <body>
   <header>
-  <div class="logo-container">
-    <img src="imagini/logo.png" alt="Logo" class="logo">
-    <span>In Her Eyes-Photography</span>
-  </div>
-</header>
-  <nav>
-    <a href="index.html">Acasă</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="noutati.html">Noutăți</a>
-    <a href="despre.html">Despre</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-   <div class="content">
-    <h2>Galerie foto <br> Concert Alexandra Capitanescu 2025 - Shopping City Galați</h2>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo">
+      <span class="site-title">In Her Eyes - Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <div class="gallery">
+  <section class="galerie">
     <img data-src="imagini/alexandra1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)">
     <img data-src="imagini/alexandra2.jpg" alt="Imagine 2" class="lazy-load" onclick="openLightbox(this)">
     <img data-src="imagini/alexandra3.jpg" alt="Imagine 3" class="lazy-load" onclick="openLightbox(this)">
     <img data-src="imagini/alexandra4.jpg" alt="Imagine 4" class="lazy-load" onclick="openLightbox(this)">
     <img data-src="imagini/alexandra5.jpg" alt="Imagine 5" class="lazy-load" onclick="openLightbox(this)">
     <img data-src="imagini/alexandra6.jpg" alt="Imagine 6" class="lazy-load" onclick="openLightbox(this)">
+  </section>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-image" src="" alt="Imagine mărită">
   </div>
 
-  <div id="lightbox" class="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-image" src="" alt="">
-  </div>
-
-
+  <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 
   <script>
-    const lazyImages = document.querySelectorAll('.lazy-load');
-    const loadImages = () => {
-      lazyImages.forEach(image => {
-        if (image.getBoundingClientRect().top < window.innerHeight) {
-          image.src = image.getAttribute('data-src');
-          image.classList.remove('lazy-load');
-        }
+    document.addEventListener("DOMContentLoaded", () => {
+      const lazyImages = document.querySelectorAll(".lazy-load");
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            observer.unobserve(img);
+          }
+        });
       });
-    };
 
-    window.addEventListener('scroll', loadImages);
-    window.addEventListener('load', loadImages);
-    loadImages();
+      lazyImages.forEach(img => observer.observe(img));
+    });
 
     function openLightbox(img) {
-      var lightbox = document.getElementById('lightbox');
-      var lightboxImage = document.getElementById('lightbox-image');
-      lightbox.style.display = 'block';
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      lightbox.style.display = 'flex';
       lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
-      var lightbox = document.getElementById('lightbox');
+      const lightbox = document.getElementById('lightbox');
       lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
     }
   </script>
-   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 </body>
 </html>
+
+
+
+
+
