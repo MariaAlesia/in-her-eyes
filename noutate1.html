@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meniu Mobil - Model</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Banner image */
+    .banner {
+      width: 100%;
+      height: 250px; /* scurtă */
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Article styling */
+    .article-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .article-container h2 {
+      color: #ffb6c1;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .site-title {
+        display: none;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
+      }
+
+      .banner {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Banner Image -->
+  <img src="imagini/larockbaner.webp" alt="La Rock 2025" class="banner" />
+
+  <!-- Article Content -->
+  <div class="article-container">
+    <h2>La Rock 2025: patru zile de muzică bună și oameni faini</h2>
+    <p>Între <strong>14 și 17 august 2025</strong>, <strong>Domeniile Cantacuzino</strong> din Florești, Prahova, vor deveni epicentrul energiei, al sunetului și al culorii. La Rock, ajuns la a treia ediție, promite anul acesta nu doar concerte incendiare, ci și o serie de experiențe inedite, care vor transforma fiecare moment într-o amintire memorabilă.</p>
+
+    <h3>Șase scene, un singur puls</h3>
+    <p>La Rock 2025 va găzdui peste <strong>70 de artiști și trupe</strong> pe <strong>șase scene tematice</strong>. Pe <strong>Main Stage</strong>, sufletul festivalului, îi vom vedea pe <strong>Dubioza Kolektiv</strong>, <strong>Skindred</strong>, <strong>Subcarpați</strong>, <strong>Dirty Shirt</strong>, <strong>Robin and the Backstabbers</strong>, <strong>Dora Gaitanovici</strong>, <strong>The Kryptonite Sparks</strong>, <strong>DM Experience</strong> și <strong>Coffeeshock Company</strong>.<br>
+    <strong>Avangard Stage</strong> și <strong>Discovery Stage</strong> vor fi locurile unde publicul va descoperi trupe emergente, artiști underground și sunete noi, proaspete, cu riff-uri care nu te lasă să stai locului.<br>
+   Iubitorii de metal, punk și hardcore vor simți adrenalina pură la <strong>The Pit Stage</strong>. Pentru o experiență vizuală și sonoră avangardistă, <strong>The Tower Stage</strong> promite lumini futuriste și beat-uri electrizante.
+   Scena <strong>The Balkan </strong> aduce un amestec vibrant de ritmuri tradiționale și energie modernă, cu artiști precum Damian Drăghici & Brothers și S.A.R.S.</p>
+
+    <h3>Muzica nu se oprește la scenă</h3>
+    <p>La Rock 2025 nu este doar un festival de muzică, ci un univers de aventură. <strong>Peste 25 de activități</strong> vor fi la dispoziția participanților, multe dintre ele premiere în România. De la <strong>zboruri cu elicopterul</strong> peste domeniul de 150 de hectare, până la <strong>Bungee Jumping</strong>, experiențele vor fi pe măsura celor mai curajoși. Și pentru cei care vor să-și descopere latura artistică, <strong>Zeedo Playground</strong> va fi spațiul în care poți cânta, înregistra și crea muzică, chiar dacă ești doar „artist de o zi”.</p>
+
+    <h3>O lume în care trăiești patru zile</h3>
+    <p>Festivalul oferă mai multe tipuri de camping, fiecare cu propria personalitate:
+      <ul>
+        <li><strong>The Chillout Camp</strong> – pentru dimineți cu yoga și seri liniștite;</li>
+        <li><strong>The Party Camp</strong> – pentru cei care nu dorm niciodată;</li>
+        <li><strong>Family Camp</strong> – prietenos și sigur pentru cei mici;</li>
+        <li>plus variante pentru corturi proprii, corturi preinstalate sau rulote, toate cu acces la dușuri și facilități moderne.</li>
+      </ul>
+    </p>
+
+    <h3>Un vis pentru fotografi</h3>
+    <p>Pentru un fotograf, La Rock este mai mult decât un eveniment – este o explozie vizuală. Cadrul istoric al Domeniului Cantacuzino se împletește cu energia publicului, luminile scenelor, expresiile artiștilor și momentele de libertate absolută trăite de participanți. Fiecare scenă oferă o poveste diferită, iar activitățile extreme adaugă dinamism și unghiuri neașteptate.</p>
+
+    <p><em>La Rock 2025 nu se rezumă la muzică – este o experiență totală. În patru zile, poți trece de la pogo în fața scenei la plutit cu elicopterul deasupra mulțimii, de la apusuri în hamac la răsărituri pe ritmuri electrizante. Iar pentru cei cu aparatul foto la gât, este ocazia perfectă de a surprinde o lume vibrantă, vie și irepetabilă.</em></p>
+    <p>Toate drepturile de autor pentru fotografiile utilizate în acest articol aparțin festivalului LAROCK și nu îmi aparțin în mod direct. Acestea sunt folosite cu scop informativ și de promovare a evenimentului.</p> 
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
