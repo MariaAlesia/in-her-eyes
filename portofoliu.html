@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portofoliu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Baloo 2', cursive;
       background-color: #000;
       color: #fff;
     }
@@ -16,23 +17,15 @@
     header {
       background-color: #111;
       padding: 20px;
-      /* pe mobil center, pe desktop rămâne normal */
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
-      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-    }
-
-    /* Container pentru logo + titlu */
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: bold;
-      font-size: 2rem;
-      color: #ffb6c1;
-      flex-shrink: 0;
+      position: relative;
     }
 
     .logo {
@@ -41,19 +34,35 @@
       object-fit: contain;
     }
 
-    /* Titlul (span) */
-    .logo-container span {
-      display: inline-block;
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
     }
 
-    /* Navigația desktop */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
     nav {
       background-color: #222;
       display: flex;
       justify-content: center;
       gap: 40px;
       padding: 15px;
-      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
     }
 
     nav a {
@@ -61,85 +70,12 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
-      transition: color 0.3s ease;
     }
 
-    nav a:hover,
-    nav a:focus {
+    nav a:hover {
       text-decoration: underline;
-      color: #ff9ab8;
-      outline: none;
     }
 
-    /* Hamburger (ascuns pe desktop) */
-    .hamburger {
-      display: none;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 30px;
-      height: 25px;
-      cursor: pointer;
-      z-index: 10001;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .hamburger div {
-      height: 4px;
-      background-color: #ffb6c1;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    /* Stiluri meniului mobil ascuns implicit */
-    nav.mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 250px;
-      background-color: #222;
-      flex-direction: column;
-      padding-top: 80px;
-      box-shadow: -3px 0 10px rgba(0,0,0,0.7);
-      z-index: 10000;
-      overflow-y: auto;
-    }
-
-    nav.mobile-menu a {
-      padding: 15px 30px;
-      border-bottom: 1px solid #333;
-      font-size: 1.3rem;
-    }
-
-    /* Cand meniul e activ, il aratam */
-    nav.mobile-menu.active {
-      display: flex;
-    }
-
-    /* Schimbări la mobil */
-    @media (max-width: 768px) {
-      header {
-        justify-content: center !important;
-      }
-
-      /* Logo container: doar logo, centrat */
-      .logo-container span {
-        display: none; /* ascundem titlul */
-      }
-
-      nav {
-        display: none; /* ascundem meniul normal */
-      }
-
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    /* Galerie și restul rămân nemodificate */
     .content {
       max-width: 900px;
       margin: 40px auto;
@@ -218,6 +154,29 @@
     }
 
     @media (max-width: 768px) {
+      .site-title {
+        display: none;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
+      }
+
       .gallery {
         column-count: 1;
       }
@@ -234,59 +193,45 @@
   <header>
     <div class="logo-container">
       <img src="imagini/logo.png" alt="Logo" class="logo" />
-      <span>In Her Eyes-Photography</span>
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
-
-  <!-- Meniul desktop normal -->
-  <nav>
-    <a href="index.html">Acasă</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="noutati.html">Noutăți</a>
-    <a href="despre.html">Despre</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <!-- Hamburger pentru mobil -->
-  <div class="hamburger" aria-label="Meniu mobil" role="button" tabindex="0" aria-expanded="false" aria-controls="mobile-menu">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <!-- Meniul mobil (ascuns implicit) -->
-  <nav id="mobile-menu" class="mobile-menu" role="menu" aria-hidden="true">
-    <a href="index.html" role="menuitem" tabindex="-1">Acasă</a>
-    <a href="portofoliu.html" role="menuitem" tabindex="-1">Portofoliu</a>
-    <a href="noutati.html" role="menuitem" tabindex="-1">Noutăți</a>
-    <a href="despre.html" role="menuitem" tabindex="-1">Despre</a>
-    <a href="contact.html" role="menuitem" tabindex="-1">Contact</a>
-  </nav>
 
   <div class="content">
     <h2>Portofoliu</h2>
   </div>
 
-  <div class="gallery" aria-label="Galerie foto">
-    <!-- Imaginile încărcate lazy -->
-    <img data-src="imagini/bucovina1.jpg" alt="Peisaj Bucovina 1" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/bucovina3.jpg" alt="Peisaj Bucovina 3" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/bucovina4.jpg" alt="Peisaj Bucovina 4" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/bucovina7.jpg" alt="Peisaj Bucovina 7" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/bucovina5.jpg" alt="Peisaj Bucovina 5" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/bucovina9.jpg" alt="Peisaj Bucovina 9" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/bucovina10.jpg" alt="Peisaj Bucovina 10" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/bucovina11.jpg" alt="Peisaj Bucovina 11" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/bucovina19.jpg" alt="Peisaj Bucovina 19" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/trooper1.jpg" alt="Trooper 1" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/trooper2.jpg" alt="Trooper 2" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/trooper3.jpg" alt="Trooper 3" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/trooper4.jpg" alt="Trooper 4" class="lazy-load" tabindex="0" />
-    <img data-src="imagini/trooper6.jpg" alt="Trooper 6" class="lazy-load" tabindex="0" />
+  <div class="gallery">
+    <img data-src="imagini/bucovina1.jpg" alt="Peisaj Bucovina 1" class="lazy-load" />
+    <img data-src="imagini/bucovina3.jpg" alt="Peisaj Bucovina 3" class="lazy-load" />
+    <img data-src="imagini/bucovina4.jpg" alt="Peisaj Bucovina 4" class="lazy-load" />
+    <img data-src="imagini/bucovina7.jpg" alt="Peisaj Bucovina 7" class="lazy-load" />
+    <img data-src="imagini/bucovina5.jpg" alt="Peisaj Bucovina 5" class="lazy-load" />
+    <img data-src="imagini/bucovina9.jpg" alt="Peisaj Bucovina 9" class="lazy-load" />
+    <img data-src="imagini/bucovina10.jpg" alt="Peisaj Bucovina 10" class="lazy-load" />
+    <img data-src="imagini/bucovina11.jpg" alt="Peisaj Bucovina 11" class="lazy-load" />
+    <img data-src="imagini/bucovina19.jpg" alt="Peisaj Bucovina 19" class="lazy-load" />
+    <img data-src="imagini/trooper1.jpg" alt="Trooper 1" class="lazy-load" />
+    <img data-src="imagini/trooper2.jpg" alt="Trooper 2" class="lazy-load" />
+    <img data-src="imagini/trooper3.jpg" alt="Trooper 3" class="lazy-load" />
+    <img data-src="imagini/trooper4.jpg" alt="Trooper 4" class="lazy-load" />
+    <img data-src="imagini/trooper6.jpg" alt="Trooper 6" class="lazy-load" />
   </div>
 
-  <div class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Vizualizare imagine mare">
-    <span class="close" role="button" tabindex="0" aria-label="Închide">&times;</span>
+  <div class="lightbox">
+    <span class="close">&times;</span>
     <img src="" alt="" />
   </div>
 
@@ -301,7 +246,7 @@
       });
     });
 
-    // Lightbox simplu
+    // Lightbox
     const lightbox = document.querySelector(".lightbox");
     const lightboxImg = lightbox.querySelector("img");
     const closeBtn = lightbox.querySelector(".close");
@@ -312,26 +257,11 @@
         lightboxImg.src = img.src;
         lightboxImg.alt = img.alt;
         lightbox.style.display = "block";
-        lightbox.setAttribute("aria-hidden", "false");
-        closeBtn.focus();
-      });
-      img.addEventListener("keydown", e => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          img.click();
-        }
       });
     });
 
     closeBtn.addEventListener("click", () => {
       lightbox.style.display = "none";
-      lightbox.setAttribute("aria-hidden", "true");
-    });
-    closeBtn.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        closeBtn.click();
-      }
     });
 
     lightbox.addEventListener("click", (e) => {
@@ -341,37 +271,12 @@
     });
 
     // Hamburger menu toggle
-    const hamburger = document.querySelector(".hamburger");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    hamburger.addEventListener("click", () => {
-      const isActive = mobileMenu.classList.toggle("active");
-      hamburger.setAttribute("aria-expanded", isActive);
-      mobileMenu.setAttribute("aria-hidden", !isActive);
-      if (isActive) {
-        // Focusează primul link din meniu la deschidere
-        mobileMenu.querySelector("a").focus();
-      } else {
-        hamburger.focus();
-      }
-    });
-
-    // Accesibilitate: toggle cu Enter/Space la hamburger
-    hamburger.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        hamburger.click();
-      }
-    });
-
-    // La redimensionare, dacă ecranul e mai mare, ascundem meniul mobil
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) {
-        mobileMenu.classList.remove("active");
-        mobileMenu.setAttribute("aria-hidden", "true");
-        hamburger.setAttribute("aria-expanded", "false");
-      }
-    });
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
+    }
   </script>
 </body>
 </html>
+
+

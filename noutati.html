@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Galerie Foto</title>
+  <!-- fonturi -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -14,46 +16,55 @@
     }
 
     header {
-      background-color: #111; /* negru */
-      padding: 10px 20px;
-      position: relative;
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
     }
 
     .logo-container {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      gap: 12px;
       position: relative;
     }
 
     .logo {
-      height: 120px;
+      height: 110px;
       width: auto;
       object-fit: contain;
     }
 
     .logo-text {
-      display: inline;
+      color: #ffb6c1;
       font-size: 2rem;
       font-weight: bold;
-      color: #ffb6c1;
-      margin-left: 12px;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
     }
 
     nav {
-      background-color: #222; /* gri fundal meniului desktop */
+      background-color: #222;
       display: flex;
       justify-content: center;
-      padding: 10px 20px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links {
-      display: flex;
       gap: 40px;
-      justify-content: center;
-      flex-wrap: wrap;
-      width: 100%;
+      padding: 15px;
+      font-family: 'Baloo 2', cursive; 
     }
 
     nav a {
@@ -65,59 +76,6 @@
 
     nav a:hover {
       text-decoration: underline;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-      background-color: #111; /* negru fundal hamburger */
-      padding: 5px;
-      border-radius: 4px;
-    }
-
-    .hamburger span {
-      height: 3px;
-      width: 25px;
-      background: #ffb6c1;
-      margin: 4px 0;
-      border-radius: 2px;
-    }
-
-    @media (max-width: 768px) {
-      .logo-text {
-        display: none;
-      }
-
-      nav {
-        background-color: transparent; /* transparent pe mobil, ca bara sa fie neagra */
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        align-items: center; /* centrat pe orizontal */
-        width: 100%;
-        display: none;
-        padding-top: 10px;
-        background-color: #444; /* gri fundal meniului mobil deschis */
-        margin: 0;
-      }
-
-      .nav-links.active {
-        display: flex;
-        padding: 10px 0;
-      }
     }
 
     .gallery {
@@ -175,6 +133,31 @@
       margin-top: 40px;
     }
 
+    @media (max-width: 768px) {
+      .logo-text {
+        display: none;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 600px) {
       .gallery-item {
         flex-direction: column;
@@ -199,42 +182,47 @@
     <div class="logo-container">
       <img src="imagini/logo.png" alt="Logo" class="logo" />
       <span class="logo-text">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
-
-  <nav>
-    <div class="nav-links" id="navLinks">
+    <nav id="mobileMenu">
       <a href="index.html">Acasă</a>
       <a href="portofoliu.html">Portofoliu</a>
       <a href="noutati.html">Noutăți</a>
       <a href="despre.html">Despre</a>
       <a href="contact.html">Contact</a>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <div class="gallery">
+    <div class="gallery-item">
+      <a href="noutate2.html"><img src="imagini/reflogo.webp" alt="Imagine 1" /></a>
+      <div class="caption">
+        <h3>Rockstadt Extreme Fest 2026: Trupe anunțate și noua tranșă de bilete sunt aici!</h3>
+        <p>27-31 iulie 2026 ┃ Ghimbav, județul Brașov</p>
+      </div>
+    </div>
+  </div>
 
+  <div class="gallery">
     <div class="gallery-item">
       <a href="noutate1.html"><img src="imagini/larocklogo.jpg" alt="Imagine 1" /></a>
       <div class="caption">
         <h3>LAROCK Music Festival 2025</h3>
-        <p>14-17 aug 2025 ┃ Domeniul Cantacuzino</p>
+        <p>14-17 august 2025 ┃ Domeniul Cantacuzino</p>
       </div>
     </div>
-
   </div>
 
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 
   <script>
     function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
     }
   </script>
 </body>

@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Despre</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Baloo 2', cursive;
       background-color: #000;
       color: #fff;
     }
@@ -17,10 +17,6 @@
     header {
       background-color: #111;
       padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffb6c1;
       box-shadow: 0 2px 4px rgba(255,255,255,0.1);
     }
 
@@ -29,12 +25,36 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
+      position: relative;
     }
 
     .logo {
       height: 110px;
       width: auto;
       object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
     }
 
     nav {
@@ -54,18 +74,6 @@
 
     nav a:hover {
       text-decoration: underline;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: #ffb6c1;
-      font-size: 2rem;
-      position: absolute;
-      top: 25px;
-      right: 20px;
-      z-index: 1000;
     }
 
     .content {
@@ -110,10 +118,6 @@
       transform: scale(1.05);
     }
 
-    .buttons i {
-      font-size: 1.2rem;
-    }
-
     footer {
       text-align: center;
       padding: 15px;
@@ -122,25 +126,28 @@
       margin-top: 40px;
     }
 
-    /* === RESPONSIVE === */
     @media (max-width: 768px) {
-      .logo-container span {
+      .site-title {
         display: none;
-      }
-
-      .menu-toggle {
-        display: block;
       }
 
       nav {
         display: none;
         flex-direction: column;
-        align-items: center;
         gap: 20px;
+        align-items: center;
       }
 
       nav.active {
         display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
       }
     }
   </style>
@@ -149,12 +156,14 @@
   <header>
     <div class="logo-container">
       <img src="imagini/logo.png" alt="Logo" class="logo">
-      <span>In Her Eyes-Photography</span>
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <button class="menu-toggle" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </button>
-    <nav id="nav">
+    <nav id="mobileMenu">
       <a href="index.html">Acasă</a>
       <a href="portofoliu.html">Portofoliu</a>
       <a href="noutati.html">Noutăți</a>
@@ -183,9 +192,10 @@
 
   <script>
     function toggleMenu() {
-      const nav = document.getElementById('nav');
+      const nav = document.getElementById('mobileMenu');
       nav.classList.toggle('active');
     }
   </script>
 </body>
 </html>
+

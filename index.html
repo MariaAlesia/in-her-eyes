@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Galerie Foto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Baloo 2', cursive;
       background-color: #000;
       color: #fff;
     }
@@ -16,12 +17,7 @@
     header {
       background-color: #111;
       padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffb6c1;
       box-shadow: 0 2px 4px rgba(255,255,255,0.1);
-      position: relative; 
     }
 
     .logo-container {
@@ -29,6 +25,7 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
+      position: relative;
     }
 
     .logo {
@@ -37,10 +34,27 @@
       object-fit: contain;
     }
 
-    
-    .site-name {
-      margin-left: 10px;
-      display: inline-block;
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
     }
 
     nav {
@@ -49,8 +63,6 @@
       justify-content: center;
       gap: 40px;
       padding: 15px;
-      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
-      transition: max-height 0.3s ease;
     }
 
     nav a {
@@ -110,61 +122,28 @@
       margin-top: 40px;
     }
 
-
-    .hamburger {
-      display: none;
-      position: absolute;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      flex-direction: column;
-      cursor: pointer;
-      width: 30px;
-      height: 25px;
-      justify-content: space-between;
-      z-index: 10;
-    }
-
-    .hamburger span {
-      display: block;
-      height: 3px;
-      background: #ffb6c1;
-      border-radius: 2px;
-    }
-
     @media (max-width: 768px) {
-      header {
-        padding: 10px 20px;
-        text-align: center; 
-      }
-
-      .site-name {
+      .site-title {
         display: none;
       }
 
       nav {
-        max-height: 0;
-        overflow: hidden;
+        display: none;
         flex-direction: column;
-        gap: 0;
-        padding: 0;
-        transition: max-height 0.3s ease;
+        gap: 20px;
+        align-items: center;
       }
 
-      nav a {
-        padding: 15px 20px;
-        border-top: 1px solid #333;
-        font-size: 1.2rem;
-      }
-
-      .hamburger {
+      nav.active {
         display: flex;
       }
 
-      nav.open {
-        max-height: 500px; 
-        padding: 10px 0;
-        box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
       }
     }
   </style>
@@ -172,23 +151,22 @@
 <body>
   <header>
     <div class="logo-container">
-      <img src="imagini/logo.png" alt="Logo" class="logo" />
-      <span class="site-name">In Her Eyes-Photography</span>
+      <img src="imagini/logo.png" alt="Logo" class="logo">
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
-
-  <nav id="nav-menu">
-    <a href="index.html">Acasă</a>
-    <a href="portofoliu.html">Portofoliu</a>
-    <a href="noutati.html">Noutăți</a>
-    <a href="despre.html">Despre</a>
-    <a href="contact.html">Contact</a>
-  </nav>
 
   <div class="gallery">
     <div class="gallery-item">
@@ -220,15 +198,14 @@
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-    });
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
+    }
   </script>
 </body>
 </html>
+
 
 
 

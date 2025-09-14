@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meniu Mobil - Model</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Banner image */
+    .banner {
+      width: 100%;
+      height: 250px; /* scurtă */
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Article styling */
+    .article-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .article-container h2 {
+      color: #ffb6c1;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .site-title {
+        display: none;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
+      }
+
+      .banner {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Banner Image -->
+  <img src="imagini/refbaner.jpg" alt="La Rock 2025" class="banner" />
+
+  <!-- Article Content -->
+  <div class="article-container">
+  <h2>Rockstadt Extreme Fest 2026: Trupe anunțate și noua tranșă de bilete sunt aici!</h2>
+  <p>Fanii metalului au motive de bucurie: <strong>Rockstadt Extreme Fest 2026</strong> se apropie rapid și aduce cu sine o ediție care promite să fie de neuitat! Festivalul va avea loc între <strong>27 și 31 iulie 2026</strong>, în pitoreasca localitate <strong>Ghimbav, județul Brașov</strong>, iar organizatorii au făcut un anunț care a stârnit valuri de entuziasm: <strong>o nouă tranșă de bilete este acum disponibilă!</strong></p>
+
+  <h3> Trupele confirmate până acum</h3>
+  <p>Line-up-ul este impresionant și acoperă toate colțurile metalului. Printre confirmările de top se numără:</p>
+  <ul>
+    <li><strong>Helloween</strong> – legenda power metalului</li>
+    <li><strong>Lamb of God</strong> – pentru iubitorii de groove și metal modern</li>
+    <li><strong>In Flames</strong> – pionierii melodic death metal</li>
+    <li><strong>Nevermore, In Extremo, Thy Art Is Murder</strong> și mulți alții!</li>
+  </ul>
+  <p>În total, peste 20 de trupe vor urca pe scenă, de la <strong>death metal</strong> la <strong>metalcore</strong> și chiar <strong>avant-garde</strong>, garantând o experiență de neuitat pentru fiecare fan.</p>
+
+  <h3> Noua tranșă de bilete, nu rata ocazia!</h3>
+  <p>Dacă ai ratat prima rundă, <strong>acum ai șansa să-ți asiguri locul</strong>! Biletele sunt deja puse în vânzare și vin cu opțiuni pentru toate gusturile:</p>
+  <ul>
+    <li><strong>Full Pass</strong> – 1100 lei – acces complet la toate zilele festivalului </li>
+    <li><strong>Teen Full Pass</strong> - 550 lei - (12–18 ani) – toate avantajele Full Pass la preț redus</li>
+  </ul>
+  <p>Grăbește-te, pentru că locurile se epuizează rapid și nu vrei să rămâi pe dinafară!</p>
+
+  <h3> Unde se desfășoară magia</h3>
+  <p>Festivalul are loc în <strong>Ghimbav</strong>, la doar câțiva kilometri de Brașov. Locația oferă un cadru perfect, cu <strong>atmosferă autentică</strong> și <strong>acces facil</strong> pentru participanți din toată țara și nu numai.</p>
+
+  <h3> Ce urmează</h3>
+  <p>Organizatorii promit surprize și anunțuri noi în lunile următoare: <strong>trupe noi, activități speciale și experiențe de festival unice</strong>. Pentru a fi mereu la curent, urmărește <strong>site-ul oficial</strong> și <strong>canalele de social media</strong> ale Rockstadt Extreme Fest.</p>
+
+  <p> Pentru bilete și detalii, vizitează: <a href="https://rockstadtextremefest.ro/" target="_blank" style="color:#ffb6c1;">rockstadtextremefest.ro</a>.</p>
+  <br>
+  <br>
+  <p>Toate drepturile de autor pentru fotografiile utilizate în acest articol aparțin Rockstadt Extreme Fest și nu îmi aparțin în mod direct. Acestea sunt folosite cu scop informativ și de promovare a evenimentului.</p> 
+
+</div>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
