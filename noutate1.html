@@ -81,7 +81,7 @@
     /* Banner image */
     .banner {
       width: 100%;
-      height: 250px; /* scurtă */
+      height: 250px;
       object-fit: cover;
       display: block;
     }
@@ -98,6 +98,62 @@
     .article-container h2 {
       color: #ffb6c1;
       margin-bottom: 20px;
+    }
+    
+    .article-container h3 {
+      color: #ffb6c1;
+      margin-top: 30px;
+    }
+
+    /* Stil pentru butonul de traducere */
+    .translate-btn {
+        background-color: transparent;
+        color: #ffb6c1;
+        border: 2px solid #ffb6c1;
+        padding: 8px 16px;
+        font-family: 'Baloo 2', cursive;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        display: inline-block;
+        transition: all 0.3s;
+    }
+    
+    .translate-btn:hover {
+        background-color: #ffb6c1;
+        color: #000;
+    }
+
+    /* Stil pentru butonul de Bilete (Call to Action) */
+    .ticket-btn {
+        background-color: #ffb6c1;
+        color: #000;
+        text-decoration: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        display: inline-block;
+        transition: transform 0.2s, background-color 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+    }
+
+    .ticket-btn:hover {
+        background-color: #ff9aa2;
+        transform: scale(1.05);
+        text-decoration: none;
+        color: #000;
+    }
+
+    .ticket-container {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    /* Clase utilitare pentru ascundere/afisare */
+    .hidden {
+        display: none;
     }
 
     @media (max-width: 768px) {
@@ -150,44 +206,108 @@
     </nav>
   </header>
 
-  <!-- Banner Image -->
   <img src="imagini/larockbaner.webp" alt="La Rock 2025" class="banner" />
 
-  <!-- Article Content -->
   <div class="article-container">
-    <h2>La Rock 2025: patru zile de muzică bună și oameni faini</h2>
-    <p>Între <strong>14 și 17 august 2025</strong>, <strong>Domeniile Cantacuzino</strong> din Florești, Prahova, vor deveni epicentrul energiei, al sunetului și al culorii. La Rock, ajuns la a treia ediție, promite anul acesta nu doar concerte incendiare, ci și o serie de experiențe inedite, care vor transforma fiecare moment într-o amintire memorabilă.</p>
 
-    <h3>Șase scene, un singur puls</h3>
-    <p>La Rock 2025 va găzdui peste <strong>70 de artiști și trupe</strong> pe <strong>șase scene tematice</strong>. Pe <strong>Main Stage</strong>, sufletul festivalului, îi vom vedea pe <strong>Dubioza Kolektiv</strong>, <strong>Skindred</strong>, <strong>Subcarpați</strong>, <strong>Dirty Shirt</strong>, <strong>Robin and the Backstabbers</strong>, <strong>Dora Gaitanovici</strong>, <strong>The Kryptonite Sparks</strong>, <strong>DM Experience</strong> și <strong>Coffeeshock Company</strong>.<br>
-    <strong>Avangard Stage</strong> și <strong>Discovery Stage</strong> vor fi locurile unde publicul va descoperi trupe emergente, artiști underground și sunete noi, proaspete, cu riff-uri care nu te lasă să stai locului.<br>
-   Iubitorii de metal, punk și hardcore vor simți adrenalina pură la <strong>The Pit Stage</strong>. Pentru o experiență vizuală și sonoră avangardistă, <strong>The Tower Stage</strong> promite lumini futuriste și beat-uri electrizante.
-   Scena <strong>The Balkan </strong> aduce un amestec vibrant de ritmuri tradiționale și energie modernă, cu artiști precum Damian Drăghici & Brothers și S.A.R.S.</p>
+    <div style="text-align: right;">
+        <button onclick="toggleLanguage()" id="langBtn" class="translate-btn">Read in English 🇬🇧</button>
+    </div>
 
-    <h3>Muzica nu se oprește la scenă</h3>
-    <p>La Rock 2025 nu este doar un festival de muzică, ci un univers de aventură. <strong>Peste 25 de activități</strong> vor fi la dispoziția participanților, multe dintre ele premiere în România. De la <strong>zboruri cu elicopterul</strong> peste domeniul de 150 de hectare, până la <strong>Bungee Jumping</strong>, experiențele vor fi pe măsura celor mai curajoși. Și pentru cei care vor să-și descopere latura artistică, <strong>Zeedo Playground</strong> va fi spațiul în care poți cânta, înregistra și crea muzică, chiar dacă ești doar „artist de o zi”.</p>
+    <div id="content-ro">
+        <h2>La Rock 2025: patru zile de muzică bună și oameni faini</h2>
+        <p>Între <strong>14 și 17 august 2025</strong>, <strong>Domeniile Cantacuzino</strong> din Florești, Prahova, vor deveni epicentrul energiei, al sunetului și al culorii. La Rock, ajuns la a treia ediție, promite anul acesta nu doar concerte incendiare, ci și o serie de experiențe inedite, care vor transforma fiecare moment într-o amintire memorabilă.</p>
 
-    <h3>O lume în care trăiești patru zile</h3>
-    <p>Festivalul oferă mai multe tipuri de camping, fiecare cu propria personalitate:
-      <ul>
-        <li><strong>The Chillout Camp</strong> – pentru dimineți cu yoga și seri liniștite;</li>
-        <li><strong>The Party Camp</strong> – pentru cei care nu dorm niciodată;</li>
-        <li><strong>Family Camp</strong> – prietenos și sigur pentru cei mici;</li>
-        <li>plus variante pentru corturi proprii, corturi preinstalate sau rulote, toate cu acces la dușuri și facilități moderne.</li>
-      </ul>
-    </p>
+        <h3>Șase scene, un singur puls</h3>
+        <p>La Rock 2025 va găzdui peste <strong>70 de artiști și trupe</strong> pe <strong>șase scene tematice</strong>. Pe <strong>Main Stage</strong>, sufletul festivalului, îi vom vedea pe <strong>Dubioza Kolektiv</strong>, <strong>Skindred</strong>, <strong>Subcarpați</strong>, <strong>Dirty Shirt</strong>, <strong>Robin and the Backstabbers</strong>, <strong>Dora Gaitanovici</strong>, <strong>The Kryptonite Sparks</strong>, <strong>DM Experience</strong> și <strong>Coffeeshock Company</strong>.</p>
+        
+        <p><strong>Avangard Stage</strong> și <strong>Discovery Stage</strong> vor fi locurile unde publicul va descoperi trupe emergente, artiști underground și sunete noi, proaspete, cu riff-uri care nu te lasă să stai locului.</p>
+        
+        <p>Iubitorii de metal, punk și hardcore vor simți adrenalina pură la <strong>The Pit Stage</strong>. Pentru o experiență vizuală și sonoră avangardistă, <strong>The Tower Stage</strong> promite lumini futuriste și beat-uri electrizante. Scena <strong>The Balkan</strong> aduce un amestec vibrant de ritmuri tradiționale și energie modernă, cu artiști precum Damian Drăghici & Brothers și S.A.R.S.</p>
 
-    <h3>Un vis pentru fotografi</h3>
-    <p>Pentru un fotograf, La Rock este mai mult decât un eveniment, este o explozie vizuală. Cadrul istoric al Domeniului Cantacuzino se împletește cu energia publicului, luminile scenelor, expresiile artiștilor și momentele de libertate absolută trăite de participanți. Fiecare scenă oferă o poveste diferită, iar activitățile extreme adaugă dinamism și unghiuri neașteptate.</p>
+        <h3>Muzica nu se oprește la scenă</h3>
+        <p>La Rock 2025 nu este doar un festival de muzică, ci un univers de aventură. <strong>Peste 25 de activități</strong> vor fi la dispoziția participanților, multe dintre ele premiere în România. De la <strong>zboruri cu elicopterul</strong> peste domeniul de 150 de hectare, până la <strong>Bungee Jumping</strong>, experiențele vor fi pe măsura celor mai curajoși. Și pentru cei care vor să-și descopere latura artistică, <strong>Zeedo Playground</strong> va fi spațiul în care poți cânta, înregistra și crea muzică, chiar dacă ești doar „artist de o zi”.</p>
 
-    <p><em>La Rock 2025 nu se rezumă la muzică, este o experiență totală. În patru zile, poți trece de la pogo în fața scenei la plutit cu elicopterul deasupra mulțimii, de la apusuri în hamac la răsărituri pe ritmuri electrizante. Iar pentru cei cu aparatul foto la gât, este ocazia perfectă de a surprinde o lume vibrantă, vie și irepetabilă.</em></p>
-    <p>Toate drepturile de autor pentru fotografiile utilizate în acest articol aparțin festivalului LAROCK și nu îmi aparțin în mod direct. Acestea sunt folosite cu scop informativ și de promovare a evenimentului.</p> 
+        <h3>O lume în care trăiești patru zile</h3>
+        <p>Festivalul oferă mai multe tipuri de camping, fiecare cu propria personalitate:</p>
+        <ul>
+            <li><strong>The Chillout Camp</strong> – pentru dimineți cu yoga și seri liniștite;</li>
+            <li><strong>The Party Camp</strong> – pentru cei care nu dorm niciodată;</li>
+            <li><strong>Family Camp</strong> – prietenos și sigur pentru cei mici;</li>
+            <li>Plus variante pentru corturi proprii, corturi preinstalate sau rulote, toate cu acces la dușuri și facilități moderne.</li>
+        </ul>
+
+        <h3>Un vis pentru fotografi</h3>
+        <p>Pentru un fotograf, La Rock este mai mult decât un eveniment, este o explozie vizuală. Cadrul istoric al Domeniului Cantacuzino se împletește cu energia publicului, luminile scenelor, expresiile artiștilor și momentele de libertate absolută trăite de participanți. Fiecare scenă oferă o poveste diferită, iar activitățile extreme adaugă dinamism și unghiuri neașteptate.</p>
+
+        <p><em>La Rock 2025 nu se rezumă la muzică, este o experiență totală. În patru zile, poți trece de la pogo în fața scenei la plutit cu elicopterul deasupra mulțimii, de la apusuri în hamac la răsărituri pe ritmuri electrizante. Iar pentru cei cu aparatul foto la gât, este ocazia perfectă de a surprinde o lume vibrantă, vie și irepetabilă.</em></p>
+
+        <div class="ticket-container">
+            <a href="https://larock.ro/" target="_blank" class="ticket-btn">Vezi Bilete Aici</a>
+        </div>
+    </div>
+
+    <div id="content-en" class="hidden">
+        <h2>La Rock 2025: Four Days of Good Music and Great People</h2>
+        <p>Between <strong>August 14th and 17th, 2025</strong>, the <strong>Cantacuzino Estate</strong> in Florești, Prahova, will become the epicenter of energy, sound, and color. La Rock, now in its third edition, promises this year not only incendiary concerts but also a series of unique experiences that will turn every moment into a memorable memory.</p>
+
+        <h3>Six Stages, One Pulse</h3>
+        <p>La Rock 2025 will host over <strong>70 artists and bands</strong> on <strong>six thematic stages</strong>. On the <strong>Main Stage</strong>, the soul of the festival, we will see <strong>Dubioza Kolektiv</strong>, <strong>Skindred</strong>, <strong>Subcarpați</strong>, <strong>Dirty Shirt</strong>, <strong>Robin and the Backstabbers</strong>, <strong>Dora Gaitanovici</strong>, <strong>The Kryptonite Sparks</strong>, <strong>DM Experience</strong>, and <strong>Coffeeshock Company</strong>.</p>
+        
+        <p><strong>Avangard Stage</strong> and <strong>Discovery Stage</strong> will be the places where the audience will discover emerging bands, underground artists, and fresh new sounds, with riffs that won't let you stand still.</p>
+        
+        <p>Lovers of metal, punk, and hardcore will feel pure adrenaline at <strong>The Pit Stage</strong>. For an avant-garde visual and auditory experience, <strong>The Tower Stage</strong> promises futuristic lights and electric beats. <strong>The Balkan Stage</strong> brings a vibrant mix of traditional rhythms and modern energy, with artists like Damian Drăghici & Brothers and S.A.R.S.</p>
+
+        <h3>Music Doesn't Stop at the Stage</h3>
+        <p>La Rock 2025 is not just a music festival, but a universe of adventure. <strong>Over 25 activities</strong> will be available to participants, many of them premieres in Romania. From <strong>helicopter flights</strong> over the 150-hectare estate to <strong>Bungee Jumping</strong>, the experiences will match the bravest. And for those who want to discover their artistic side, <strong>Zeedo Playground</strong> will be the space where you can sing, record, and create music, even if you are just an "artist for a day".</p>
+
+        <h3>A World You Live In for Four Days</h3>
+        <p>The festival offers several types of camping, each with its own personality:</p>
+        <ul>
+            <li><strong>The Chillout Camp</strong> – for mornings with yoga and quiet evenings;</li>
+            <li><strong>The Party Camp</strong> – for those who never sleep;</li>
+            <li><strong>Family Camp</strong> – friendly and safe for the little ones;</li>
+            <li>Plus options for own tents, pre-installed tents, or caravans, all with access to showers and modern facilities.</li>
+        </ul>
+
+        <h3>A Photographer's Dream</h3>
+        <p>For a photographer, La Rock is more than an event; it is a visual explosion. The historical setting of the Cantacuzino Estate intertwines with the energy of the crowd, the stage lights, the artists' expressions, and the moments of absolute freedom experienced by the participants. Each stage offers a different story, and the extreme activities add dynamism and unexpected angles.</p>
+
+        <p><em>La Rock 2025 is not limited to music; it is a total experience. In four days, you can go from pogoing in front of the stage to floating in a helicopter above the crowd, from sunsets in a hammock to sunrises on electrifying rhythms. And for those with a camera around their neck, it is the perfect opportunity to capture a vibrant, alive, and unrepeatable world.</em></p>
+
+        <div class="ticket-container">
+            <a href="https://larock.ro/" target="_blank" class="ticket-btn">See Tickets Here</a>
+        </div>
+    </div>
+
+    <hr>
+    <p><em><small>Toate drepturile de autor pentru fotografiile utilizate în acest articol aparțin festivalului LAROCK și nu îmi aparțin în mod direct. Acestea sunt folosite cu scop informativ și de promovare a evenimentului.</small></em></p> 
   </div>
 
   <script>
+    // Functia pentru meniul de mobil
     function toggleMenu() {
       const nav = document.getElementById('mobileMenu');
       nav.classList.toggle('active');
+    }
+
+    // Functia pentru traducere
+    function toggleLanguage() {
+        const roContent = document.getElementById('content-ro');
+        const enContent = document.getElementById('content-en');
+        const btn = document.getElementById('langBtn');
+
+        if (roContent.classList.contains('hidden')) {
+            // Trecem pe Romana
+            roContent.classList.remove('hidden');
+            enContent.classList.add('hidden');
+            btn.textContent = "Read in English 🇬🇧";
+        } else {
+            // Trecem pe Engleza
+            roContent.classList.add('hidden');
+            enContent.classList.remove('hidden');
+            btn.textContent = "Citește în Română 🇷🇴";
+        }
     }
   </script>
 </body>

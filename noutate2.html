@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meniu Mobil - Model</title>
+  <title>Rockstadt 2026 - Lineup & Bilete</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
   <style>
@@ -81,7 +81,7 @@
     /* Banner image */
     .banner {
       width: 100%;
-      height: 250px; /* scurtă */
+      height: 250px;
       object-fit: cover;
       display: block;
     }
@@ -98,6 +98,62 @@
     .article-container h2 {
       color: #ffb6c1;
       margin-bottom: 20px;
+    }
+    
+    .article-container h3 {
+      color: #ffb6c1;
+      margin-top: 30px;
+    }
+
+    /* Stil pentru butonul de traducere */
+    .translate-btn {
+        background-color: transparent;
+        color: #ffb6c1;
+        border: 2px solid #ffb6c1;
+        padding: 8px 16px;
+        font-family: 'Baloo 2', cursive;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        display: inline-block;
+        transition: all 0.3s;
+    }
+    
+    .translate-btn:hover {
+        background-color: #ffb6c1;
+        color: #000;
+    }
+
+    /* Stil pentru butonul de Bilete (Call to Action) */
+    .ticket-btn {
+        background-color: #ffb6c1;
+        color: #000;
+        text-decoration: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        display: inline-block;
+        transition: transform 0.2s, background-color 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+    }
+
+    .ticket-btn:hover {
+        background-color: #ff9aa2;
+        transform: scale(1.05);
+        text-decoration: none;
+        color: #000;
+    }
+
+    .ticket-container {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    /* Clase utilitare pentru ascundere/afisare */
+    .hidden {
+        display: none;
     }
 
     @media (max-width: 768px) {
@@ -150,49 +206,109 @@
     </nav>
   </header>
 
-  <!-- Banner Image -->
   <img src="imagini/refbaner.jpg" alt="La Rock 2025" class="banner" />
 
-  <!-- Article Content -->
   <div class="article-container">
-  <h2>Rockstadt Extreme Fest 2026: Primele trupe anunțate și noua tranșă de bilete sunt aici!</h2>
-  <p>Fanii metalului au motive de bucurie: <strong>Rockstadt Extreme Fest 2026</strong> se apropie rapid și aduce cu sine o ediție care promite să fie de neuitat! Festivalul va avea loc între <strong>27 și 31 iulie 2026</strong>, în pitoreasca localitate <strong>Ghimbav, județul Brașov</strong>, iar organizatorii au făcut un anunț care a stârnit valuri de entuziasm: <strong>o nouă tranșă de bilete este acum disponibilă!</strong></p>
+    
+    <div style="text-align: right;">
+        <button onclick="toggleLanguage()" id="langBtn" class="translate-btn">Read in English 🇬🇧</button>
+    </div>
 
-  <h3> Trupele confirmate până acum</h3>
-  <p>Line-up-ul este impresionant și acoperă toate colțurile metalului. Printre confirmările de top se numără:</p>
-  <ul>
-    <li><strong>Helloween</strong> – legenda power metalului</li>
-    <li><strong>Lamb of God</strong> – pentru iubitorii de groove și metal modern</li>
-    <li><strong>In Flames</strong> – legendari pentru melodic death metal</li>
-    <li><strong>Nevermore, In Extremo, Thy Art Is Murder</strong> și mulți alții!</li>
-  </ul>
-  <p>În total, peste 20 de trupe vor urca pe scenă, de la <strong>death metal</strong> la <strong>metalcore</strong> și chiar <strong>avant-garde</strong>, garantând o experiență de neuitat pentru fiecare fan.</p>
+    <div id="content-ro">
+        <h2>Rockstadt Extreme Fest 2026: Primele trupe anunțate și noua tranșă de bilete sunt aici!</h2>
+        <p>Fanii metalului au motive de bucurie: <strong>Rockstadt Extreme Fest 2026</strong> se apropie rapid și aduce cu sine o ediție care promite să fie de neuitat! Festivalul va avea loc între <strong>27 și 31 iulie 2026</strong>, în pitoreasca localitate <strong>Ghimbav, județul Brașov</strong>, iar organizatorii au făcut un anunț care a stârnit valuri de entuziasm: <strong>o nouă tranșă de bilete este acum disponibilă!</strong></p>
 
-  <h3> Noua tranșă de bilete, nu rata ocazia!</h3>
-  <p>Dacă ai ratat prima rundă, <strong>acum ai șansa să-ți asiguri locul</strong>! 1100 de bilete sunt acum disponibile și vin cu opțiuni pentru toate gusturile:</p>
-  <ul>
-    <li><strong>Full Pass</strong> – 1100 lei – acces complet la toate zilele festivalului </li>
-    <li><strong>Teen Full Pass</strong> - 550 lei - (12–18 ani) – toate avantajele Full Pass la preț redus</li>
-  </ul>
-  <p>Grăbește-te, pentru că locurile se epuizează rapid și nu vrei să rămâi pe dinafară!</p>
+        <h3>Trupele confirmate până acum</h3>
+        <p>Line-up-ul este impresionant și acoperă toate colțurile metalului. Printre confirmările de top se numără:</p>
+        <ul>
+            <li><strong>Helloween</strong> – legenda power metalului</li>
+            <li><strong>Lamb of God</strong> – pentru iubitorii de groove și metal modern</li>
+            <li><strong>In Flames</strong> – legendari pentru melodic death metal</li>
+            <li><strong>Nevermore, In Extremo, Thy Art Is Murder</strong> și mulți alții!</li>
+        </ul>
+        <p>În total, peste 20 de trupe vor urca pe scenă, de la <strong>death metal</strong> la <strong>metalcore</strong> și chiar <strong>avant-garde</strong>, garantând o experiență de neuitat pentru fiecare fan.</p>
 
-  <h3> Unde se desfășoară magia</h3>
-  <p>Festivalul are loc în <strong>Ghimbav</strong>, la doar câțiva kilometri de Brașov. Locația oferă un cadru perfect, cu <strong>atmosferă autentică</strong> și <strong>acces facil</strong> pentru participanți din toată țara și nu numai.</p>
+        <h3>Noua tranșă de bilete, nu rata ocazia!</h3>
+        <p>Dacă ai ratat prima rundă, <strong>acum ai șansa să-ți asiguri locul</strong>! 1100 de bilete sunt acum disponibile și vin cu opțiuni pentru toate gusturile:</p>
+        <ul>
+            <li><strong>Full Pass</strong> – 1100 lei – acces complet la toate zilele festivalului </li>
+            <li><strong>Teen Full Pass</strong> - 550 lei - (12–18 ani) – toate avantajele Full Pass la preț redus</li>
+        </ul>
+        <p>Grăbește-te, pentru că locurile se epuizează rapid și nu vrei să rămâi pe dinafară!</p>
 
-  <h3> Ce urmează</h3>
-  <p>Organizatorii promit surprize și anunțuri noi în lunile următoare: <strong>trupe noi, activități speciale și experiențe de festival unice</strong>. Pentru a fi mereu la curent, urmărește <strong>site-ul oficial</strong> și <strong>canalele de social media</strong> ale Rockstadt Extreme Fest.</p>
+        <h3>Unde se desfășoară magia</h3>
+        <p>Festivalul are loc în <strong>Ghimbav</strong>, la doar câțiva kilometri de Brașov. Locația oferă un cadru perfect, cu <strong>atmosferă autentică</strong> și <strong>acces facil</strong> pentru participanți din toată țara și nu numai.</p>
 
-  <p> Pentru bilete și detalii, vizitează: <a href="https://rockstadtextremefest.ro/" target="_blank" style="color:#ffb6c1;">rockstadtextremefest.ro</a>.</p>
-  <br>
-  <br>
-  <p>Toate drepturile de autor pentru fotografiile utilizate în acest articol aparțin Rockstadt Extreme Fest și nu îmi aparțin în mod direct. Acestea sunt folosite cu scop informativ și de promovare a evenimentului.</p> 
+        <h3>Ce urmează</h3>
+        <p>Organizatorii promit surprize și anunțuri noi în lunile următoare: <strong>trupe noi, activități speciale și experiențe de festival unice</strong>. Pentru a fi mereu la curent, urmărește <strong>site-ul oficial</strong> și <strong>canalele de social media</strong> ale Rockstadt Extreme Fest.</p>
 
-</div>
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/bilete-rockstadt-extreme-fest-2026-118254/" target="_blank" class="ticket-btn">Cumpără Bilete Aici</a>
+        </div>
+    </div>
+
+    <div id="content-en" class="hidden">
+        <h2>Rockstadt Extreme Fest 2026: First Bands Announced and New Ticket Batch Are Here!</h2>
+        <p>Metal fans have reasons to rejoice: <strong>Rockstadt Extreme Fest 2026</strong> is approaching fast, bringing with it an edition that promises to be unforgettable! The festival will take place between <strong>July 27th and 31st, 2026</strong>, in the picturesque town of <strong>Ghimbav, Brașov County</strong>, and the organizers have made an announcement that has sparked waves of excitement: <strong>a new batch of tickets is now available!</strong></p>
+
+        <h3>Confirmed Bands So Far</h3>
+        <p>The line-up is impressive and covers all corners of metal. Top confirmations include:</p>
+        <ul>
+            <li><strong>Helloween</strong> – power metal legends</li>
+            <li><strong>Lamb of God</strong> – for lovers of groove and modern metal</li>
+            <li><strong>In Flames</strong> – legendary for melodic death metal</li>
+            <li><strong>Nevermore, In Extremo, Thy Art Is Murder</strong> and many others!</li>
+        </ul>
+        <p>In total, over 20 bands will take the stage, from <strong>death metal</strong> to <strong>metalcore</strong> and even <strong>avant-garde</strong>, guaranteeing an unforgettable experience for every fan.</p>
+
+        <h3>New Ticket Batch, Don't Miss the Chance!</h3>
+        <p>If you missed the first round, <strong>now is your chance to secure your spot</strong>! 1100 tickets are now available, coming with options for all tastes:</p>
+        <ul>
+            <li><strong>Full Pass</strong> – 1100 lei – full access to all festival days</li>
+            <li><strong>Teen Full Pass</strong> - 550 lei - (12–18 years old) – all Full Pass benefits at a reduced price</li>
+        </ul>
+        <p>Hurry up, because spots are selling out fast and you don't want to be left out!</p>
+
+        <h3>Where the Magic Happens</h3>
+        <p>The festival takes place in <strong>Ghimbav</strong>, just a few kilometers from Brașov. The location offers a perfect setting, with an <strong>authentic atmosphere</strong> and <strong>easy access</strong> for participants from all over the country and beyond.</p>
+
+        <h3>What's Next</h3>
+        <p>The organizers promise surprises and new announcements in the coming months: <strong>new bands, special activities, and unique festival experiences</strong>. To stay up to date, follow the <strong>official website</strong> and <strong>social media channels</strong> of Rockstadt Extreme Fest.</p>
+
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/bilete-rockstadt-extreme-fest-2026-118254/" target="_blank" class="ticket-btn">Buy Tickets Here</a>
+        </div>
+    </div>
+
+    <hr>
+    <p><em><small>Toate drepturile de autor pentru fotografiile utilizate în acest articol aparțin Rockstadt Extreme Fest și nu îmi aparțin în mod direct. Acestea sunt folosite cu scop informativ și de promovare a evenimentului.</small></em></p>
+
+  </div>
 
   <script>
+    // Functia pentru meniul de mobil
     function toggleMenu() {
       const nav = document.getElementById('mobileMenu');
       nav.classList.toggle('active');
+    }
+
+    // Functia pentru traducere
+    function toggleLanguage() {
+        const roContent = document.getElementById('content-ro');
+        const enContent = document.getElementById('content-en');
+        const btn = document.getElementById('langBtn');
+
+        if (roContent.classList.contains('hidden')) {
+            // Trecem pe Romana
+            roContent.classList.remove('hidden');
+            enContent.classList.add('hidden');
+            btn.textContent = "Read in English 🇬🇧";
+        } else {
+            // Trecem pe Engleza
+            roContent.classList.add('hidden');
+            enContent.classList.remove('hidden');
+            btn.textContent = "Citește în Română 🇷🇴";
+        }
     }
   </script>
 </body>
