@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meniu Mobil - Model</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Banner image */
+    .banner {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Article styling */
+    .article-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .article-container h2 {
+      color: #ffb6c1;
+      margin-bottom: 20px;
+    }
+    
+    .article-container h3 {
+      color: #ffb6c1;
+      margin-top: 30px;
+    }
+
+    /* Stil pentru butonul de traducere */
+    .translate-btn {
+        background-color: transparent;
+        color: #ffb6c1;
+        border: 2px solid #ffb6c1;
+        padding: 8px 16px;
+        font-family: 'Baloo 2', cursive;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        display: inline-block;
+        transition: all 0.3s;
+    }
+    
+    .translate-btn:hover {
+        background-color: #ffb6c1;
+        color: #000;
+    }
+
+    /* Stil pentru butonul de Bilete (Call to Action) */
+    .ticket-btn {
+        background-color: #ffb6c1;
+        color: #000;
+        text-decoration: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        display: inline-block;
+        transition: transform 0.2s, background-color 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+    }
+
+    .ticket-btn:hover {
+        background-color: #ff9aa2;
+        transform: scale(1.05);
+        text-decoration: none;
+        color: #000;
+    }
+
+    .ticket-container {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    /* Clase utilitare pentru ascundere/afisare */
+    .hidden {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+      .site-title {
+        display: none;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
+      }
+
+      .banner {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <img src="imagini/banercorturi.jpg" alt="La Rock 2025" class="banner" />
+
+  <div class="article-container">
+    
+    <div style="text-align: right;">
+        <button onclick="toggleLanguage()" id="langBtn" class="translate-btn">Read in English 🇬🇧</button>
+    </div>
+
+    <div id="content-ro">
+        <h2>Experiența completă Rockstadt Extreme Fest 2026: De ce campingul este inima festivalului</h2>
+
+        <p>Muzica este, fără îndoială, motivul principal pentru care ne adunăm cu toții la <strong>Rockstadt Extreme Fest</strong>, dar experiența autentică de festival nu se termină atunci când ultima trupă coboară de pe scenă. Pentru veteranul de festival, dar și pentru cel aflat la prima aventură, zona de <strong>camping</strong> reprezintă mult mai mult decât un loc de dormit, este epicentrul comunității metal.</p>
+
+        <p>Dacă încă stai pe gânduri în privința cazării pentru ediția din iulie 2026 de la Ghimbav, iată de ce ar trebui să alegi cortul în detrimentul unei pensiuni îndepărtate.</p>
+
+        <h3>1. Comunitatea: "Metal Family" la ea acasă</h3>
+
+        <p>Campingul este locul unde barierele dispar. Aici se leagă prietenii pe viață la o cafea de dimineață sau la o bere târzie după concerte. Este singurul loc unde poți discuta despre riff-ul preferat de la trupa de headliner cu vecinii de cort veniți din alt colț al lumii.</p>
+
+        <p>Atmosfera din campingul Rockstadt este recunoscută pentru siguranță și camaraderie. Ești înconjurat de oameni care împărtășesc aceeași pasiune, transformând simpla campare într-un after-party continuu (dar civilizat).</p>
+
+        <h3>2. Ești la "o aruncătură de băț" de scenă</h3>
+
+        <p>Unul dintre cele mai mari avantaje ale campingului oficial este <strong>proximitatea</strong>. Uitând de grija taxiurilor, a navetei spre Brașov sau a traficului, câștigi timp prețios.</p>
+
+        <ul>
+            <li>Poți merge la cort să te odihnești între concerte.</li>
+            <li>Ai acces rapid la haine de schimb (știm cu toții cât de capricioasă poate fi vremea uneori la munte).</li>
+            <li>Nu ratezi nicio trupă preferată pentru că ai rămas blocat pe drum.</li>
+        </ul>
+
+        <h3>3. Facilități și organizare</h3>
+
+        <p>Pentru ediția 2026, organizatorii pregătesc o zonă de camping optimizată pentru confortul rockerilor. Deși detaliile tehnice fine vor fi actualizate pe parcurs, standardul Rockstadt include de obicei:</p>
+
+        <ul>
+            <li><strong>Pază 24/7:</strong> Acces controlat doar pentru posesorii de brățări de camping.</li>
+            <li><strong>Zone sanitare:</strong> Dușuri și toalete ecologice, întreținute periodic.</li>
+            <li><strong>Magazine în apropiere:</strong> Acces facil la magazine pentru când rămâi în pană de provizii.</li>
+        </ul>
+
+        <h3>Ghid de supraviețuire la camping (Tips & Tricks)</h3>
+
+        <p>Pentru a te bucura la maximum de cele 5 zile de festival sub cerul liber, iată câteva recomandări esențiale pentru bagajul tău:</p>
+
+        <ul>
+            <li><strong>Pregătește-te de frig:</strong> Chiar dacă e iulie, nopțile în zona Brașovului pot fi reci. Un sac de dormit bun și o izopren/saltea groasă sunt obligatorii.</li>
+            <li><strong>Dopuri de urechi:</strong> Deși iubim metalul, somnul este vital pentru a rezista 5 zile. Dopurile te vor ajuta să dormi indiferent de ora la care se culcă vecinii.</li>
+            <li><strong>Power bank:</strong> Asigură-te că ai surse externe de energie pentru a ține telefonul încărcat (pentru poze și filmări, evident!).</li>
+        </ul>
+
+        <h3>Cum îți asiguri locul?</h3>
+
+        <p>Accesul în zona de camping se face pe baza unui bilet dedicat, separat de abonamentul de festival. Locurile sunt limitate și, istoric vorbind, zona de camping se declară <strong>SOLD OUT</strong> destul de repede, pe măsură ce ne apropiem de vară.</p>
+
+        <p>Nu lăsa pe ultima sută de metri confortul tău! Verifică disponibilitatea biletelor de camping și regulamentul complet pe site-ul oficial.</p>
+        
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/bilete-rockstadt-extreme-fest-2026-118254/" target="_blank" class="ticket-btn">Cumpără Bilete Aici</a>
+        </div>
+
+        <p><strong>Ne vedem la cort, în inima distracției!</strong></p>
+    </div>
+
+    <div id="content-en" class="hidden">
+        <h2>The Complete Rockstadt Extreme Fest 2026 Experience: Why Camping is the Heart of the Festival</h2>
+
+        <p>Music is undoubtedly the main reason we all gather at <strong>Rockstadt Extreme Fest</strong>, but the authentic festival experience doesn't end when the last band leaves the stage. For the festival veteran, as well as for the first-timer, the <strong>camping area</strong> is much more than just a place to sleep—it is the epicenter of the metal community.</p>
+
+        <p>If you're still undecided about your accommodation for the July 2026 edition in Ghimbav, here is why you should choose the tent over a distant guesthouse.</p>
+
+        <h3>1. The Community: The "Metal Family" feels at home</h3>
+
+        <p>The campsite is where barriers disappear. Lifelong friendships are forged here over morning coffee or a late-night beer after the shows. It's the only place where you can discuss your favorite riff from the headliner band with tent neighbors who traveled from the other side of the world.</p>
+
+        <p>The atmosphere in the Rockstadt campsite is known for safety and camaraderie. You are surrounded by people who share the same passion, turning simple camping into a continuous (yet civilized) after-party.</p>
+
+        <h3>2. A stone's throw from the stage</h3>
+
+        <p>One of the biggest advantages of the official camping is <strong>proximity</strong>. By forgetting about taxis, the shuttle to Brașov, or traffic, you gain precious time.</p>
+
+        <ul>
+            <li>You can go to your tent to rest between concerts.</li>
+            <li>You have quick access to a change of clothes (we all know how fickle mountain weather can sometimes be).</li>
+            <li>You won't miss any favorite bands because you got stuck on the road.</li>
+        </ul>
+
+        <h3>3. Facilities and Organization</h3>
+
+        <p>For the 2026 edition, the organizers are preparing a camping area optimized for rocker comfort. Although fine technical details will be updated along the way, the Rockstadt standard usually includes:</p>
+
+        <ul>
+            <li><strong>24/7 Security:</strong> Controlled access only for camping wristband holders.</li>
+            <li><strong>Sanitary Zones:</strong> Showers and eco-toilets, maintained periodically.</li>
+            <li><strong>Nearby Shops:</strong> Easy access to stores for when you run out of supplies.</li>
+        </ul>
+
+        <h3>Camping Survival Guide (Tips & Tricks)</h3>
+
+        <p>To enjoy the 5 days of open-air festival to the fullest, here are some essential recommendations for your luggage:</p>
+
+        <ul>
+            <li><strong>Prepare for the cold:</strong> Even if it's July, nights in the Brașov area can be cold. A good sleeping bag and a thick sleeping pad/mattress are mandatory.</li>
+            <li><strong>Earplugs:</strong> Although we love metal, sleep is vital to last 5 days. Earplugs will help you sleep regardless of what time your neighbors go to bed.</li>
+            <li><strong>Power bank:</strong> Make sure you have external power sources to keep your phone charged (for photos and videos, obviously!).</li>
+        </ul>
+
+        <h3>How to secure your spot?</h3>
+
+        <p>Access to the camping area is based on a dedicated ticket, separate from the festival pass. Spots are limited and, historically speaking, the camping area is declared <strong>SOLD OUT</strong> quite quickly as summer approaches.</p>
+
+        <p>Don't leave your comfort to the last minute! Check camping ticket availability and the full regulations on the official website.</p>
+        
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/bilete-rockstadt-extreme-fest-2026-118254/" target="_blank" class="ticket-btn">Buy Tickets Here</a>
+        </div>
+
+        <p><strong>See you at the tent, in the heart of the fun!</strong></p>
+    </div>
+
+  </div>
+
+  <script>
+    // Functia pentru meniul de mobil
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
+    }
+
+    // Functia pentru traducere
+    function toggleLanguage() {
+        const roContent = document.getElementById('content-ro');
+        const enContent = document.getElementById('content-en');
+        const btn = document.getElementById('langBtn');
+
+        if (roContent.classList.contains('hidden')) {
+            // Trecem pe Romana
+            roContent.classList.remove('hidden');
+            enContent.classList.add('hidden');
+            btn.textContent = "Read in English 🇬🇧";
+        } else {
+            // Trecem pe Engleza
+            roContent.classList.add('hidden');
+            enContent.classList.remove('hidden');
+            btn.textContent = "Citește în Română 🇷🇴";
+        }
+    }
+  </script>
+</body>
+</html>
