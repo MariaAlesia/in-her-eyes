@@ -1,11 +1,12 @@
+<!--la rock 2025 -->
 <!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portofoliu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>La Rock 2025 - Domeniul Cantacuzino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -102,35 +103,31 @@
       border-radius: 12px;
       display: block;
       box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
-      cursor: pointer;
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
-    .gallery img:hover,
-    .gallery img:focus {
+    .gallery img:hover {
       transform: scale(1.03);
-      outline: none;
     }
 
     .lightbox {
       display: none;
       position: fixed;
-      z-index: 9999;
-      top: 0;
+      z-index: 1;
+      padding-top: 50px;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0;
+      width: 100%;
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.9);
       text-align: center;
-      padding-top: 50px;
     }
 
     .lightbox img {
       max-width: 90%;
       max-height: 80%;
       margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 0 30px #ffb6c1aa;
     }
 
     .lightbox .close {
@@ -141,7 +138,6 @@
       font-size: 40px;
       font-weight: bold;
       cursor: pointer;
-      user-select: none;
     }
 
     footer {
@@ -150,7 +146,6 @@
       background-color: #111;
       color: #ffb6c1;
       margin-top: 40px;
-      font-size: 0.9rem;
     }
 
     @media (max-width: 768px) {
@@ -210,25 +205,11 @@
   </header>
 
   <div class="content">
-    <h2>Portofoliu</h2>
+    <h2>Galerie foto <br />La Rock 2025 - Domeniul Cantacuzino</h2>
   </div>
 
   <div class="gallery">
-    <img data-src="imagini/bucovina1.jpg" alt="Peisaj Bucovina 1" class="lazy-load" />
-    <img data-src="imagini/bucovina3.jpg" alt="Peisaj Bucovina 3" class="lazy-load" />
-    <img data-src="imagini/bucovina4.jpg" alt="Peisaj Bucovina 4" class="lazy-load" />
-    <img data-src="imagini/bucovina7.jpg" alt="Peisaj Bucovina 7" class="lazy-load" />
-    <img data-src="imagini/bucovina5.jpg" alt="Peisaj Bucovina 5" class="lazy-load" />
-    <img data-src="imagini/bucovina9.jpg" alt="Peisaj Bucovina 9" class="lazy-load" />
-    <img data-src="imagini/bucovina10.jpg" alt="Peisaj Bucovina 10" class="lazy-load" />
-    <img data-src="imagini/bucovina11.jpg" alt="Peisaj Bucovina 11" class="lazy-load" />
-    <img data-src="imagini/bucovina19.jpg" alt="Peisaj Bucovina 19" class="lazy-load" />
-    <img data-src="imagini/trooper1.jpg" alt="Trooper 1" class="lazy-load" />
-    <img data-src="imagini/trooper2.jpg" alt="Trooper 2" class="lazy-load" />
-    <img data-src="imagini/trooper3.jpg" alt="Trooper 3" class="lazy-load" />
-    <img data-src="imagini/trooper4.jpg" alt="Trooper 4" class="lazy-load" />
-    <img data-src="imagini/trooper6.jpg" alt="Trooper 6" class="lazy-load" />
-       <img data-src="imagini/larock1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/larock1.jpg" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)">
     <img data-src="imagini/larock2.jpg" alt="Imagine 2" class="lazy-load" onclick="openLightbox(this)">
     <img data-src="imagini/larock3.jpg" alt="Imagine 3" class="lazy-load" onclick="openLightbox(this)">
     <img data-src="imagini/larock4.jpg" alt="Imagine 4" class="lazy-load" onclick="openLightbox(this)">
@@ -272,53 +253,44 @@
    
   </div>
 
-  <div class="lightbox">
-    <span class="close">&times;</span>
-    <img src="" alt="" />
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-image" src="" alt=""/>
   </div>
 
   <footer>&copy; 2025 Hodorogea Maria Alesia</footer>
 
   <script>
-    // Lazy load imagini
-    document.addEventListener("DOMContentLoaded", function() {
-      const lazyImages = document.querySelectorAll("img.lazy-load");
-      lazyImages.forEach(img => {
-        img.src = img.dataset.src;
-      });
-    });
-
-    // Lightbox
-    const lightbox = document.querySelector(".lightbox");
-    const lightboxImg = lightbox.querySelector("img");
-    const closeBtn = lightbox.querySelector(".close");
-    const galleryImgs = document.querySelectorAll(".gallery img");
-
-    galleryImgs.forEach(img => {
-      img.addEventListener("click", () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.style.display = "block";
-      });
-    });
-
-    closeBtn.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
-
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        closeBtn.click();
-      }
-    });
-
-    // Hamburger menu toggle
     function toggleMenu() {
       const nav = document.getElementById('mobileMenu');
       nav.classList.toggle('active');
     }
+
+    const lazyImages = document.querySelectorAll('.lazy-load');
+    const loadImages = () => {
+      lazyImages.forEach(image => {
+        if (image.getBoundingClientRect().top < window.innerHeight) {
+          image.src = image.getAttribute('data-src');
+          image.classList.remove('lazy-load');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', loadImages);
+    window.addEventListener('load', loadImages);
+    loadImages();
+
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      lightbox.style.display = 'block';
+      lightboxImage.src = img.src;
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none';
+    }
   </script>
 </body>
 </html>
-
-
