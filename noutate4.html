@@ -12,12 +12,15 @@
       font-family: 'Baloo 2', cursive;
       background-color: #000;
       color: #fff;
+      overflow-x: hidden; 
     }
 
     header {
       background-color: #111;
       padding: 20px;
       box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      position: relative;
+      z-index: 20;
     }
 
     .logo-container {
@@ -94,6 +97,7 @@
       padding: 0 20px;
       line-height: 1.7;
       font-size: 1.1rem;
+      position: relative; /* Necesare pentru inimile absolute */
     }
 
     .article-container h2 {
@@ -181,6 +185,37 @@
         display: none;
     }
 
+    /* === STILURI PENTRU INIMIOARELE PLUTITOARE === */
+    .floating-heart {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: #ffb6c1;
+        transform: rotate(-45deg);
+        z-index: 10;
+        opacity: 0.8;
+        animation: floatAnim 3s ease-in-out infinite alternate;
+        pointer-events: none; /* Sa nu blocheze click-urile */
+    }
+
+    .floating-heart::before,
+    .floating-heart::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: #ffb6c1;
+        border-radius: 50%;
+    }
+
+    .floating-heart::before { top: -15px; left: 0; }
+    .floating-heart::after { left: 15px; top: 0; }
+
+    @keyframes floatAnim {
+        0% { transform: rotate(-45deg) translateY(0); }
+        100% { transform: rotate(-45deg) translateY(-10px); }
+    }
+
     @media (max-width: 768px) {
       .site-title {
         display: none;
@@ -208,6 +243,9 @@
       .banner {
         height: 200px;
       }
+
+      /* Pe mobil aducem inimile putin mai inauntru */
+      .floating-heart { transform: rotate(-45deg) scale(0.7) !important; }
     }
   </style>
 </head>
@@ -235,6 +273,11 @@
 
   <div class="article-container">
     
+    <div class="floating-heart" style="top: -15px; left: 20px;"></div>
+    
+    <div class="floating-heart" style="top: 40%; right: 10px; animation-delay: 1s;"></div>
+    
+    <div class="floating-heart" style="bottom: 120px; left: 30px; animation-delay: 0.5s;"></div>
     <div style="text-align: right;">
         <button onclick="toggleLanguage()" id="langBtn" class="translate-btn">Read in English 🇬🇧</button>
     </div>
