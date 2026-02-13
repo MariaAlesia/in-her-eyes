@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Noutăți - Rockstadt 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Banner image */
+    .banner {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      object-position: center; 
+      display: block;
+    }
+
+    /* Article styling */
+    .article-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .article-container h2 {
+      color: #ffb6c1;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    
+    .article-container h3 {
+      color: #ffb6c1;
+      margin-top: 30px;
+      font-size: 1.5rem;
+    }
+
+    .article-container ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .article-container li {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        border-left: 3px solid #ffb6c1;
+    }
+
+    /* Stil pentru butonul de traducere */
+    .translate-btn {
+        background-color: transparent;
+        color: #ffb6c1;
+        border: 2px solid #ffb6c1;
+        padding: 8px 16px;
+        font-family: 'Baloo 2', cursive;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        display: inline-block;
+        transition: all 0.3s;
+    }
+    
+    .translate-btn:hover {
+        background-color: #ffb6c1;
+        color: #000;
+    }
+
+    /* Stil pentru butonul de Bilete (Call to Action) */
+    .ticket-btn {
+        background-color: #ffb6c1;
+        color: #000;
+        text-decoration: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        display: inline-block;
+        transition: transform 0.2s, background-color 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+    }
+
+    .ticket-btn:hover {
+        background-color: #ff9aa2;
+        transform: scale(1.05);
+        text-decoration: none;
+        color: #000;
+    }
+
+    .ticket-container {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    /* Stil pentru disclaimer (nota de final) */
+    .disclaimer {
+        margin-top: 40px;
+        padding-top: 15px;
+        border-top: 1px solid #333;
+        font-size: 0.9rem;
+        color: #aaa;
+        font-style: italic;
+        text-align: center;
+    }
+
+    /* Clase utilitare pentru ascundere/afisare */
+    .hidden {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+      .site-title {
+        display: none;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
+      }
+
+      .banner {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <img src="imagini/valentin.jpg" alt="Quick and Loud Sale" class="banner" />
+
+  <div class="article-container">
+    
+    <div style="text-align: right;">
+        <button onclick="toggleLanguage()" id="langBtn" class="translate-btn">Read in English 🇬🇧</button>
+    </div>
+
+    <div id="content-ro">
+        <h2>Rockstadt o comite din nou: Reduceri „Quick and Loud” de Valentine's Day</h2>
+
+        <p>Dacă încă nu ai luat cadoul pentru jumătatea ta (sau pur și simplu vrei să-ți faci ție un cadou pentru 2026), Rockstadt Extreme Fest vine cu o campanie inedită, exact de Ziua Îndrăgostiților. Și, în stilul lor caracteristic, au împachetat totul într-o glumă destul de sugestivă.</p>
+
+        <p>Sub sloganul <strong>„Quick and Loud”</strong>, organizatorii fac haz de necaz pe seama statisticilor despre „durata medie” a momentelor intime (aparent 6-12 minute) și au decis să meargă pe calea de mijloc: <strong>10 minute</strong>.</p>
+
+        <h3>Ce înseamnă asta pentru tine?</h3>
+
+        <p>Practic, e un test de viteză. Începând de vineri, <strong>14 februarie</strong>, timp de 10 zile la rând, se dă startul unei vânzări fulger.</p>
+
+        <p>Fereastra de oportunitate este extrem de mică:</p>
+        <ul>
+            <li><strong>Când?</strong> Zilnic, între orele <strong>19:00 și 19:10</strong>.</li>
+            <li><strong>Unde?</strong> Pe pagina lor oficială de bilete.</li>
+        </ul>
+
+        <p>Nu au spus exact ce reduceri vor fi, dar mesajul e clar: „Dacă clipești, ai ratat”. Având în vedere lineup-ul masiv anunțat deja pentru 2026 (cu Sabaton, Manson, Godsmack și Helloween), probabil va fi bătaie pe site în acele 10 minute.</p>
+
+        <p><strong>Sfat:</strong> Pune-ți alarma la 18:59. E genul de campanie unde serverele se încing rapid.</p>
+        
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/" target="_blank" class="ticket-btn">Prinde Oferta Aici</a>
+        </div>
+
+        <p class="disclaimer">
+            *Imaginile utilizate în acest articol sunt preluate de pe canalele oficiale Rockstadt Extreme Fest. Nu revendic dreptul de proprietate asupra lor.
+        </p>
+    </div>
+
+    <div id="content-en" class="hidden">
+        <h2>Rockstadt Gets Cheeky for Valentine’s: The "Quick and Loud" Flash Sale</h2>
+
+        <p>If you haven't sorted out a gift for your significant other yet (or just want to treat yourself for 2026), Rockstadt Extreme Fest has just dropped a pretty hilarious campaign right in time for Valentine’s Day. And true to form, they’ve wrapped it in a bit of a dirty joke.</p>
+
+        <p>Under the slogan <strong>“Quick and Loud”</strong>, the organizers are poking fun at statistics regarding the "average duration" of intimacy (apparently between 6 and 12 minutes). Their solution? They decided to meet us right in the middle: <strong>10 minutes</strong>.</p>
+
+        <h3>What does this mean for you?</h3>
+
+        <p>Basically, it’s a speed test. Starting this Friday, <strong>February 14th</strong>, for <strong>10 days straight</strong>, they are launching a daily flash sale.</p>
+
+        <p>The window of opportunity is incredibly tight:</p>
+        <ul>
+            <li><strong>When?</strong> Every evening, strictly from <strong>19:00 to 19:10</strong>.</li>
+            <li><strong>Where?</strong> On their official ticket page.</li>
+        </ul>
+
+        <p>They haven't spoiled the surprise regarding the exact discount, but the warning is clear: "If you blink, you miss it". Considering the massive lineup already confirmed for 2026, the site is probably going to get hammered in those 10 minutes.</p>
+
+        <p><strong>Pro tip:</strong> Set your alarm for 18:59. This is the kind of sale where every second counts.</p>
+        
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/" target="_blank" class="ticket-btn">Catch the Deal Here</a>
+        </div>
+
+        <p class="disclaimer">
+            *Images used in this article are sourced from official Rockstadt Extreme Fest channels. I do not claim ownership of them.
+        </p>
+    </div>
+
+  </div>
+
+  <script>
+    // Functia pentru meniul de mobil
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
+    }
+
+    // Functia pentru traducere
+    function toggleLanguage() {
+        const roContent = document.getElementById('content-ro');
+        const enContent = document.getElementById('content-en');
+        const btn = document.getElementById('langBtn');
+
+        if (roContent.classList.contains('hidden')) {
+            // Trecem pe Romana
+            roContent.classList.remove('hidden');
+            enContent.classList.add('hidden');
+            btn.textContent = "Read in English 🇬🇧";
+        } else {
+            // Trecem pe Engleza
+            roContent.classList.add('hidden');
+            enContent.classList.remove('hidden');
+            btn.textContent = "Citește în Română 🇷🇴";
+        }
+    }
+  </script>
+</body>
+</html>
