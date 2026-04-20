@@ -1,0 +1,281 @@
+<!--irina 2025 -->
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Concert Pastila Irina Rimes - Club Control</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-family: 'Fredoka', cursive;
+      color: #ffb6c1;
+      text-align: center;
+    }
+
+    .gallery {
+      column-count: 2;
+      column-gap: 15px;
+      padding: 30px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      text-align: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      margin: 0 auto;
+    }
+
+    .lightbox .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #111;
+      color: #ffb6c1;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .site-title {
+        display: none;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-container {
+        justify-content: center;
+      }
+
+      .gallery {
+        column-count: 1;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .gallery {
+        column-count: 3;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h2>Galerie foto <br />Concert Pastila Irina Rimes - Club Control</h2>
+  </div>
+
+  <div class="gallery">
+    <img data-src="imagini/irina1.CR2" alt="Imagine 1" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina2.CR2" alt="Imagine 2" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina3.CR2" alt="Imagine 3" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina4.CR2" alt="Imagine 4" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina6.CR2" alt="Imagine 6" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina7.CR2" alt="Imagine 7" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina8.CR2" alt="Imagine 8" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina9.CR2" alt="Imagine 9" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina10.CR2" alt="Imagine 10" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina11.CR2" alt="Imagine 11" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina12.CR2" alt="Imagine 12" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina13.CR2" alt="Imagine 13" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina14.CR2" alt="Imagine 14" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina15.CR2" alt="Imagine 15" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina16.CR2" alt="Imagine 16" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina17.CR2" alt="Imagine 17" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina18.CR2" alt="Imagine 18" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina19.CR2" alt="Imagine 19" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina20.CR2" alt="Imagine 20" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina21.CR2" alt="Imagine 21" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina22.CR2" alt="Imagine 22" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina23.CR2" alt="Imagine 23" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina24.CR2" alt="Imagine 24" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina25.CR2" alt="Imagine 25" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina26.CR2" alt="Imagine 26" class="lazy-load" onclick="openLightbox(this)">
+    <img data-src="imagini/irina27.CR2" alt="Imagine 27" class="lazy-load" onclick="openLightbox(this)">
+   
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-image" src="" alt=""/>
+  </div>
+
+  <footer>&copy; 2026 Hodorogea Maria Alesia</footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
+    }
+
+    const lazyImages = document.querySelectorAll('.lazy-load');
+    const loadImages = () => {
+      lazyImages.forEach(image => {
+        if (image.getBoundingClientRect().top < window.innerHeight) {
+          image.src = image.getAttribute('data-src');
+          image.classList.remove('lazy-load');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', loadImages);
+    window.addEventListener('load', loadImages);
+    loadImages();
+
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      lightbox.style.display = 'block';
+      lightboxImage.src = img.src;
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

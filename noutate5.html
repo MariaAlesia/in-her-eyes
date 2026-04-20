@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Noutăți - In Her Eyes Photography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden; 
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+      position: relative;
+      z-index: 20;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .banner {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      object-position: center; 
+      display: block;
+    }
+
+    .article-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .article-container h2 {
+      color: #ffb6c1;
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+    }
+    
+    .article-container h3 {
+      color: #ffb6c1;
+      margin-top: 35px;
+      font-size: 1.6rem;
+    }
+
+    .translate-btn {
+        background-color: transparent;
+        color: #ffb6c1;
+        border: 2px solid #ffb6c1;
+        padding: 8px 16px;
+        font-family: 'Baloo 2', cursive;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        display: inline-block;
+        transition: all 0.3s;
+    }
+    
+    .translate-btn:hover {
+        background-color: #ffb6c1;
+        color: #000;
+    }
+
+    .ticket-btn {
+        background-color: #ffb6c1;
+        color: #000;
+        text-decoration: none;
+        padding: 15px 35px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        display: inline-block;
+        transition: transform 0.2s, background-color 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+    }
+
+    .ticket-btn:hover {
+        background-color: #ff9aa2;
+        transform: scale(1.05);
+        color: #000;
+    }
+
+    .ticket-container {
+        text-align: center;
+        margin: 50px 0;
+    }
+
+    .disclaimer {
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #333;
+        font-size: 0.9rem;
+        color: #aaa;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+      .site-title { display: none; }
+      nav { display: none; flex-direction: column; gap: 15px; align-items: center; }
+      nav.active { display: flex; }
+      .menu-toggle { display: flex; }
+      .banner { height: 250px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <img src="imagini/irina13.CR2" alt="Irina Rimes Live" class="banner" />
+
+  <div class="article-container">
+    
+    <div style="text-align: right;">
+        <button onclick="toggleLanguage()" id="langBtn" class="translate-btn">Read in English 🇬🇧</button>
+    </div>
+
+    <!-- CONȚINUT ROMÂNĂ -->
+    <div id="content-ro">
+        <h2>Dincolo de Obiectiv: Universul „Pastila” și o Surpriză de Proporții în Club Control</h2>
+
+        <p>Joi seara, Club Control s-a transformat într-un sanctuar al emoției brute. Concertul Irinei Rimes pentru albumul <strong>„Pastila”</strong> nu a fost doar un simplu concert, ci o experiență senzorială pe care am avut privilegiul să o documentez prin lentila mea, cadru cu cadru.</p>
+
+        <p>Atmosfera a fost electrică încă de la primele acorduri. Estetica albumului, un mix fascinant de vulnerabilitate și forță, s-a tradus vizual într-un joc de lumini dramatice, în nuanțe de neon și umbre adânci, oferind cadrul perfect pentru fotografia de concert. Însă, momentul care a făcut întreaga sală să explodeze și a oferit cele mai intense cadre a fost apariția neașteptată a lui <strong>Killa Fonic</strong>.</p>
+
+        <h3>O conexiune magnetică pe scenă</h3>
+        <p>Momentul în care Killa Fonic și-a făcut apariția alături de Irina a fost pur și simplu magnetic. Chimia lor artistică a tăiat respirația publicului și a creat ocazii incredibile pentru portrete: de la priviri pline de însemnătate, până la energia debordantă a beat-urilor trap care s-au contopit cu vocea hipnotică a Irinei. A fost un contrast superb între sensibilitate și rebeliune, o dualitate pe care am încercat să o transmit în fiecare fotografie.</p>
+
+        <p>Pentru mine, ca fotograf, provocarea a fost să surprind acele micro-expresii și gesturi care dispar într-o fracțiune de secundă. Rezultatul este o galerie care sper să vă transmită nu doar cum a arătat scena, ci cum s-a <em>simțit</em> cu adevărat acea noapte specială.</p>
+
+        <div class="ticket-container">
+            <a href="galerie8.html" class="ticket-btn">Vezi Galeria Foto</a>
+        </div>
+
+        <p class="disclaimer">
+            *Toate fotografiile din galeria menționată sunt proprietatea In Her Eyes-Photography. Utilizarea lor fără acord este interzisă.
+        </p>
+    </div>
+
+    <!-- CONȚINUT ENGLEZĂ -->
+    <div id="content-en" class="hidden">
+        <h2>Beyond the Lens: The "Pastila" Universe and a Massive Surprise at Club Control</h2>
+
+        <p>Thursday night, Club Control turned into a sanctuary of raw emotion. Irina Rimes' <strong>"Pastila"</strong> concert wasn't just a musical gig; it was a sensory experience that I had the privilege to document through my lens, frame by frame.</p>
+
+        <p>The atmosphere was electric from the very first chords. The album's aesthetic—a captivating mix of vulnerability and strength—translated visually into a play of dramatic neon lights and deep shadows, providing the perfect canvas for concert photography. But the climax that truly energized the crowd was the unexpected appearance of <strong>Killa Fonic</strong>.</p>
+
+        <h3>A Magnetic On-Stage Connection</h3>
+        <p>The moment Killa Fonic stepped onto the stage alongside Irina was simply magnetic. Their artistic chemistry was breathtaking and created incredible opportunities for portraits: from meaningful glances to the overflowing energy of trap beats merging with Irina’s hypnotic voice. It was a beautiful contrast between sensitivity and rebellion, a duality I aimed to capture in every shot.</p>
+
+        <p>For me, as a photographer, the challenge was capturing those micro-expressions and gestures that disappear in a split second. The result is a gallery that I hope conveys not just how the stage looked, but how that special night truly <em>felt</em>.</p>
+
+        <div class="ticket-container">
+            <a href="galerie8.html" class="ticket-btn">View Photo Gallery</a>
+        </div>
+
+        <p class="disclaimer">
+            *All photos in the designated gallery are captured by In Her Eyes-Photography. Unauthorized use is prohibited.
+        </p>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobileMenu');
+      nav.classList.toggle('active');
+    }
+
+    function toggleLanguage() {
+        const roContent = document.getElementById('content-ro');
+        const enContent = document.getElementById('content-en');
+        const btn = document.getElementById('langBtn');
+
+        if (roContent.classList.contains('hidden')) {
+            roContent.classList.remove('hidden');
+            enContent.classList.add('hidden');
+            btn.textContent = "Read in English 🇬🇧";
+        } else {
+            roContent.classList.add('hidden');
+            enContent.classList.remove('hidden');
+            btn.textContent = "Citește în Română 🇷🇴";
+        }
+    }
+  </script>
+</body>
+</html>
