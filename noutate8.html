@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Program pe Zile - Rockstadt 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .banner {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .article-container h2, .article-container h3 {
+      color: #ffb6c1;
+    }
+
+    .pink-accent {
+      color: #f9c2cc; 
+      font-weight: 500;
+    }
+
+    .translate-btn {
+        background-color: transparent;
+        color: #ffb6c1;
+        border: 2px solid #ffb6c1;
+        padding: 8px 16px;
+        font-family: 'Baloo 2', cursive;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        transition: all 0.3s;
+    }
+    
+    .translate-btn:hover {
+        background-color: #ffb6c1;
+        color: #000;
+    }
+
+    .program-day {
+        border-left: 3px solid #ffb6c1;
+        padding-left: 15px;
+        margin-bottom: 25px;
+    }
+
+    .ticket-btn {
+        background-color: #ffb6c1;
+        color: #000;
+        text-decoration: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        display: inline-block;
+        transition: transform 0.2s, background-color 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+        margin-top: 20px;
+    }
+
+    .ticket-btn:hover {
+        background-color: #ff9aa2;
+        transform: scale(1.05);
+        color: #000;
+    }
+
+    .ticket-container {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .disclaimer {
+        margin-top: 40px;
+        border-top: 1px solid #333;
+        padding-top: 15px;
+        font-size: 0.9rem;
+        color: #aaa;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 768px) {
+      .site-title { display: none; }
+      nav { display: none; flex-direction: column; gap: 20px; align-items: center; }
+      nav.active { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <img src="imagini/noutate8.1.jpg" alt="Rockstadt Extreme Fest 2026 Lineup" class="banner" />
+
+  <div class="article-container">
+    <div style="text-align: right;">
+        <button onclick="toggleLanguage()" id="langBtn" class="translate-btn">Read in English 🇬🇧</button>
+    </div>
+
+    <!-- CONTINUT ROMANA -->
+    <div id="content-ro">
+        <h2>Programul Rockstadt 2026: Cum se împart trupele pe zile</h2>
+        <p>Așteptarea a luat sfârșit pentru cei care vor să-și plănuiască „asaltul” la <span class="pink-accent">Ghimbav</span>. Organizatorii au publicat distribuția trupelor pe zile, deci acum știi exact când trebuie să fii în fața scenei pentru headlinerii tăi preferați.</p>
+
+        <div class="program-day">
+            <h3>Luni, 27 Iulie</h3>
+            <p>Ziua de deschidere lovește puternic cu <span class="pink-accent">Sabaton</span> și <span class="pink-accent">Marilyn Manson</span>. Pe listă se mai află Heaven Shall Burn, Black Label Society și Fu Manchu.</p>
+        </div>
+
+        <div class="program-day">
+            <h3>Marți, 28 Iulie</h3>
+            <p>O zi dominată de <span class="pink-accent">Godsmack</span> și <span class="pink-accent">In Flames</span>. Vor urca pe scenă și Hatebreed, Igorrr, Nevermore, Orbit Culture și Deafheaven.</p>
+        </div>
+
+        <div class="program-day">
+            <h3>Miercuri, 29 Iulie</h3>
+            <p>Mijlocul săptămânii vine cu forța brută <span class="pink-accent">Lamb of God</span> și <span class="pink-accent">Arch Enemy</span>. Programul include Slaughter to Prevail, In Extremo și legendarii Deicide.</p>
+        </div>
+
+        <div class="program-day">
+            <h3>Joi, 30 Iulie</h3>
+            <p>Pregătește-te pentru <span class="pink-accent">Helloween</span> (40 years anniversary) și show-ul plin de energie de la <span class="pink-accent">Airbourne</span>. Satyricon, Amorphis și Trooper completează ziua.</p>
+        </div>
+
+        <div class="program-day">
+            <h3>Vineri, 31 Iulie</h3>
+            <p>Finalul festivalului îi aduce pe <span class="pink-accent">The Prodigy</span>. Alături de ei, vor face spectacol The Gathering, Periphery, Carcass și Insomnium.</p>
+        </div>
+
+        <p style="text-align: center; font-size: 1.2rem; margin-top: 30px;">Programul este unul dintre cele mai solide de până acum. Tu pentru ce zi ți-ai luat bilet?</p>
+
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/" target="_blank" class="ticket-btn">Cumpără Bilete Aici</a>
+        </div>
+
+        <p class="disclaimer">Imaginile utilizate sunt preluate de pe conturile oficiale de socializare ale Rockstadt Extreme Fest; nu dețin drepturi de autor asupra acestora.</p>
+    </div>
+
+    <!-- CONTINUT ENGLEZA -->
+    <div id="content-en" class="hidden">
+        <h2>Rockstadt 2026 Schedule: Daily Band Distribution</h2>
+        <p>The wait is over for those planning their "assault" on <span class="pink-accent">Ghimbav</span>. The daily lineup is here, so you know exactly when to be at the stage for your favorite headliners.</p>
+
+        <div class="program-day">
+            <h3>Monday, July 27</h3>
+            <p>Opening day hits hard with <span class="pink-accent">Sabaton</span> and <span class="pink-accent">Marilyn Manson</span>. Also featuring Heaven Shall Burn, Black Label Society, and Fu Manchu.</p>
+        </div>
+
+        <div class="program-day">
+            <h3>Tuesday, July 28</h3>
+            <p>A day dominated by <span class="pink-accent">Godsmack</span> and <span class="pink-accent">In Flames</span>. Hatebreed, Igorrr, Nevermore, Orbit Culture, and Deafheaven will also take the stage.</p>
+        </div>
+
+        <div class="program-day">
+            <h3>Wednesday, July 29</h3>
+            <p>Mid-week brings the raw power of <span class="pink-accent">Lamb of God</span> and <span class="pink-accent">Arch Enemy</span>. Including Slaughter to Prevail, In Extremo, and the legendary Deicide.</p>
+        </div>
+
+        <div class="program-day">
+            <h3>Thursday, July 30</h3>
+            <p>Get ready for <span class="pink-accent">Helloween</span> (40th anniversary) and a high-energy show from <span class="pink-accent">Airbourne</span>. Satyricon, Amorphis, and Trooper complete the day.</p>
+        </div>
+
+        <div class="program-day">
+            <h3>Friday, July 31</h3>
+            <p>The grand finale features <span class="pink-accent">The Prodigy</span>. They are joined by The Gathering, Periphery, Carcass, and Insomnium.</p>
+        </div>
+
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/" target="_blank" class="ticket-btn">Buy Tickets Here</a>
+        </div>
+
+        <p class="disclaimer">Images used are taken from the official Rockstadt Extreme Fest social media accounts; I do not own the copyrights to them.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+
+    function toggleLanguage() {
+        const ro = document.getElementById('content-ro');
+        const en = document.getElementById('content-en');
+        const btn = document.getElementById('langBtn');
+        if (ro.classList.contains('hidden')) {
+            ro.classList.remove('hidden'); 
+            en.classList.add('hidden');
+            btn.textContent = "Read in English 🇬🇧";
+        } else {
+            ro.classList.add('hidden'); 
+            en.classList.remove('hidden');
+            btn.textContent = "Citește în Română 🇷🇴";
+        }
+    }
+  </script>
+</body>
+</html>

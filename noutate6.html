@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ghid Supraviețuire - Rockstadt 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .banner {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .article-container h2, .article-container h3 {
+      color: #ffb6c1;
+    }
+
+    /* Accent roz - nici alb, nici bold, dar vizibil la fel de gros */
+    .pink-accent {
+      color: #f9c2cc; 
+      font-weight: 500;
+    }
+
+    .translate-btn {
+        background-color: transparent;
+        color: #ffb6c1;
+        border: 2px solid #ffb6c1;
+        padding: 8px 16px;
+        font-family: 'Baloo 2', cursive;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        transition: all 0.3s;
+    }
+    
+    .translate-btn:hover {
+        background-color: #ffb6c1;
+        color: #000;
+    }
+
+    .ticket-btn {
+        background-color: #ffb6c1;
+        color: #000;
+        text-decoration: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        display: inline-block;
+        transition: transform 0.2s, background-color 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+        margin-top: 20px;
+    }
+
+    .ticket-btn:hover {
+        background-color: #ff9aa2;
+        transform: scale(1.05);
+        color: #000;
+    }
+
+    .ticket-container {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .disclaimer {
+        margin-top: 40px;
+        border-top: 1px solid #333;
+        padding-top: 15px;
+        font-size: 0.9rem;
+        color: #aaa;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 768px) {
+      .site-title { display: none; }
+      nav { display: none; flex-direction: column; gap: 20px; align-items: center; }
+      nav.active { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <img src="imagini/noutate6.jpg" alt="Rockstadt Experience" class="banner" />
+
+  <div class="article-container">
+    <div style="text-align: right;">
+        <button onclick="toggleLanguage()" id="langBtn" class="translate-btn">Read in English 🇬🇧</button>
+    </div>
+
+    <div id="content-ro">
+        <h2>Rockstadt 2026: Dincolo de scenă, Cum să supraviețuiești cu stil celor 5 zile de haos</h2>
+        <p>Dacă ai biletul în buzunar și entuziasmul la cote maxime, e timpul să vorbim despre realitatea celor 5 zile la <span class="pink-accent">Ghimbav</span>. Rockstadt Extreme Fest nu este doar un maraton de headbanging, ci un <span class="pink-accent">test de anduranță</span>. Ca să nu fii victima oboselii după primele două zile, iată un mic ghid de supraviețuire pentru ediția 2026.</p>
+
+        <h3>1. Uniforma de festival: Între estetică și utilitate</h3>
+        <p>Știm, vrei să porți tricoul cu trupa preferată, dar la poalele munților vremea este cel mai imprevizibil artist.</p>
+        <p><span class="pink-accent">Straturi, straturi, straturi:</span> Ziua pot fi 30°C, dar noaptea, în timp ce trupele fac show, temperatura scade brusc. O geacă de ploaie ușoară (sau o pelerină) e sfântă.</p>
+        <p><span class="pink-accent">Încălțămintea e cheia:</span> Nu e sub nicio formă momentul pentru bocanci noi-nouți, scoși din cutie. Mai bine alegi acei <span class="pink-accent">vechi prieteni</span> pe care îi tot porți zilnic de 10 ani încoace... <span class="pink-accent">rupți, jerpeliți</span> și trecuți prin toate noroaiele posibile. Ei sunt singurii care îți garantează că nu vei termina festivalul cu picioarele bandajate. La Rockstadt, talpa uzată și pielea tocită sunt <span class="pink-accent">semne de onoare</span>, nu defecte.</p>
+
+        <h3>2. Hidratarea: Mai mult decât o recomandare</h3>
+        <p>La un festival extreme, tentația este să uitați de apă în favoarea berii. Totuși, soarele de iulie la Ghimbav poate fi necruțător. Profită de <span class="pink-accent">punctele de hidratare</span> și nu uita: pentru fiecare pahar de alcool, bea unul de apă. Corpul tău îți va mulțumi în ziua a cincea, când vei mai avea energie pentru <span class="pink-accent">moshpit</span>.</p>
+
+        <h3>3. Zona de Food: Gastronomie de festival</h3>
+        <p>Rockstadt a crescut mult la capitolul mâncare. Nu te limita la clasicii cartofi prăjiți. În fiecare an apar opțiuni diverse, de la <span class="pink-accent">burgeri gourmet</span> la <span class="pink-accent">variante vegane</span> sau preparate locale. Încearcă să mănânci consistent înainte de concertele mari de seară... ai nevoie de <span class="pink-accent">calorii</span> pentru a susține energia din fața scenei.</p>
+
+        <h3>4. Respectul pentru munte și comunitate</h3>
+        <p>Spiritul Rockstadt stă în respect. Păstrează zona curată, folosește containerele de reciclare și respectă vecinii de festival. Suntem acolo pentru aceeași pasiune, iar atmosfera de <span class="pink-accent">metal family</span> este ceea ce face acest eveniment unic în România.</p>
+
+        <p style="text-align: center; font-size: 1.2rem; margin-top: 30px;">Pregătește-ți bagajul, verifică-ți <span class="pink-accent">bocancii aceia buni</span> și ne vedem la festival pentru 5 zile de nebunie curată!</p>
+
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/" target="_blank" class="ticket-btn">Cumpără Bilete Aici</a>
+        </div>
+
+        <p class="disclaimer">Imaginile utilizate sunt preluate de pe conturile oficiale de socializare ale Rockstadt Extreme Fest, nu dețin drepturi de autor asupra acestora.</p>
+    </div>
+
+    <div id="content-en" class="hidden">
+        <h2>Rockstadt 2026: Beyond the Stage, How to Survive the 5 Days of Chaos in Style</h2>
+        <p>If you have your ticket in your pocket and your excitement at its peak, it's time to talk about the reality of those 5 days in <span class="pink-accent">Ghimbav</span>. Rockstadt Extreme Fest isn't just a headbanging marathon; it's an <span class="pink-accent">endurance test</span>. To avoid becoming a victim of exhaustion after the first two days, here is a small survival guide for the 2026 edition.</p>
+
+        <h3>1. Festival Uniform: Between Aesthetics and Utility</h3>
+        <p>We know you want to wear your favorite band shirt, but at the foot of the mountains, the weather is the most unpredictable artist.</p>
+        <p><span class="pink-accent">Layers, layers, layers:</span> It can be 30°C during the day, but at night, while the bands are performing, the temperature drops suddenly. A light rain jacket (or a poncho) is a lifesaver.</p>
+        <p><span class="pink-accent">Footwear is key:</span> This is absolutely not the time for brand-new boots, straight out of the box. You're better off choosing those <span class="pink-accent">old friends</span> you've been wearing daily for 10 years... <span class="pink-accent">torn, worn-out</span>, and dragged through every possible mud. They are the only ones who guarantee you won't end the festival with bandaged feet. At Rockstadt, a worn sole and scuffed leather are <span class="pink-accent">badges of honor</span>, not defects.</p>
+
+        <h3>2. Hydration: More Than Just a Recommendation</h3>
+        <p>At an extreme festival, the temptation is to forget about water in favor of beer. However, the July sun in Ghimbav can be ruthless. Take advantage of the <span class="pink-accent">hydration points</span> and don't forget: for every glass of alcohol, drink one of water. Your body will thank you on the fifth day, when you'll still have energy for the <span class="pink-accent">moshpit</span>.</p>
+
+        <h3>3. Food Zone: Festival Gastronomy</h3>
+        <p>Rockstadt has grown a lot in terms of food. Don't limit yourself to classic fries. Every year, various options appear, from <span class="pink-accent">gourmet burgers</span> to <span class="pink-accent">vegan variants</span> or local dishes. Try to eat substantially before the big evening concerts... you need <span class="pink-accent">calories</span> to sustain your energy in front of the stage.</p>
+
+        <h3>4. Respect for the Mountain and Community</h3>
+        <p>The Rockstadt spirit lies in respect. Keep the area clean, use the recycling containers, and respect your festival neighbors. We are there for the same passion, and the <span class="pink-accent">metal family</span> atmosphere is what makes this event unique in Romania.</p>
+
+        <p style="text-align: center; font-size: 1.2rem; margin-top: 30px;">Pack your bags, check those <span class="pink-accent">good boots</span>, and we'll see you at the festival for 5 days of pure madness!</p>
+
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/" target="_blank" class="ticket-btn">Buy Tickets Here</a>
+        </div>
+
+        <p class="disclaimer">Images used are taken from the official Rockstadt Extreme Fest social media accounts; I do not own the copyrights to them.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+
+    function toggleLanguage() {
+        const ro = document.getElementById('content-ro');
+        const en = document.getElementById('content-en');
+        const btn = document.getElementById('langBtn');
+        if (ro.classList.contains('hidden')) {
+            ro.classList.remove('hidden'); 
+            en.classList.add('hidden');
+            btn.textContent = "Read in English 🇬🇧";
+        } else {
+            ro.classList.add('hidden'); 
+            en.classList.remove('hidden');
+            btn.textContent = "Citește în Română 🇷🇴";
+        }
+    }
+  </script>
+</body>
+</html>

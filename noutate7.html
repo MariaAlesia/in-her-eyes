@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Combo: Rockstadt & Jazz in the Park</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      height: 110px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .site-title {
+      color: #ffb6c1;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #ffb6c1;
+      border-radius: 5px;
+    }
+
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .banner {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .article-container h2, .article-container h3 {
+      color: #ffb6c1;
+    }
+
+    .pink-accent {
+      color: #f9c2cc; 
+      font-weight: 500;
+    }
+
+    .translate-btn {
+        background-color: transparent;
+        color: #ffb6c1;
+        border: 2px solid #ffb6c1;
+        padding: 8px 16px;
+        font-family: 'Baloo 2', cursive;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        transition: all 0.3s;
+    }
+    
+    .translate-btn:hover {
+        background-color: #ffb6c1;
+        color: #000;
+    }
+
+    .ticket-btn {
+        background-color: #ffb6c1;
+        color: #000;
+        text-decoration: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        display: inline-block;
+        transition: transform 0.2s, background-color 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+        margin-top: 20px;
+    }
+
+    .ticket-btn:hover {
+        background-color: #ff9aa2;
+        transform: scale(1.05);
+        color: #000;
+    }
+
+    .ticket-container {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .disclaimer {
+        margin-top: 40px;
+        border-top: 1px solid #333;
+        padding-top: 15px;
+        font-size: 0.9rem;
+        color: #aaa;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 768px) {
+      .site-title { display: none; }
+      nav { display: none; flex-direction: column; gap: 20px; align-items: center; }
+      nav.active { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="imagini/logo.png" alt="Logo" class="logo" />
+      <span class="site-title">In Her Eyes-Photography</span>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Acasă</a>
+      <a href="portofoliu.html">Portofoliu</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre.html">Despre</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <img src="imagini/noutate7.1.jpg" alt="Rockstadt and Jazz in the Park Combo" class="banner" />
+
+  <div class="article-container">
+    <div style="text-align: right;">
+        <button onclick="toggleLanguage()" id="langBtn" class="translate-btn">Read in English 🇬🇧</button>
+    </div>
+
+    <!-- CONTINUT ROMANA -->
+    <div id="content-ro">
+        <h2>De la moshpit la relaxare: Abonamentul combo Rockstadt & Jazz in the Park 2026</h2>
+        <p>Dacă ești genul de om care ascultă death metal dimineața, dar seara preferă un vibe mult mai așezat, organizatorii s-au gândit exact la tine. Pentru ediția din 2026, există o opțiune care sparge barierele genurilor muzicale: <span class="pink-accent">abonamentul combo</span> care reunește Rockstadt Extreme Fest și Jazz in the Park.</p>
+
+        <h3>Două lumi, un singur bilet</h3>
+        <p>Cine a spus că trebuie să alegi? Acest pachet special îți oferă acces la <span class="pink-accent">două experiențe complet diferite</span>. Începi vara cu energia brută de la poalele munților, în <span class="pink-accent">Ghimbav</span>, și o închei într-o notă mult mai caldă, în cadrul idilic al Parcului Etnografic din <span class="pink-accent">Cluj-Napoca</span>. Este mixul ideal pentru cei care își doresc o vară culturală completă.</p>
+
+        <h3>De ce să alegi varianta combo?</h3>
+        <p>Principalul motiv este, evident, <span class="pink-accent">economia</span>. Achiziționarea acestui abonament dual vine cu un preț mult mai avantajos decât dacă ai cumpăra biletele separat pentru fiecare festival în parte. Este, practic, un cadou pentru <span class="pink-accent">urechile polivalente</span> care știu să aprecieze atât un solo de chitară distorsionat, cât și o <span class="pink-accent">improvizație de saxofon</span> sub razele apusului.</p>
+
+        <h3>Echilibrul perfect pentru vacanță</h3>
+        <p>După 5 zile de praf, moshpit și intensitate maximă la Rockstadt, câteva zile de jazz reprezintă <span class="pink-accent">detox-ul perfect</span>. Jazz in the Park este renumit pentru atmosfera sa relaxată, unde poți sta pe iarbă, te poți bucura de natură și poți descoperi artiști rafinați. E modul în care îți <span class="pink-accent">recalibrezi simțurile</span> după haosul frumos de la Ghimbav.</p>
+
+        <h3>Disponibilitate limitată</h3>
+        <p>Atenție însă, aceste abonamente combo nu sunt nelimitate. Sunt destinate celor care își planifică din timp escapadele de vară și care vor să se asigure că nu ratează niciunul dintre cele două <span class="pink-accent">evenimente de referință</span>.</p>
+
+        <p style="text-align: center; font-size: 1.2rem; margin-top: 30px;">Fie că vii pentru breakdown-uri sau pentru ritmuri sincopate, vara lui 2026 se anunță a fi una a <span class="pink-accent">contrastelor perfecte</span>!</p>
+
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/" target="_blank" class="ticket-btn">Cumpără Abonament Combo</a>
+        </div>
+
+        <p class="disclaimer">Imaginile utilizate sunt preluate de pe conturile oficiale de socializare ale celor două festivaluri; nu dețin drepturi de autor asupra acestora.</p>
+    </div>
+
+    <!-- CONTINUT ENGLEZA -->
+    <div id="content-en" class="hidden">
+        <h2>From Moshpit to Relaxation: The Rockstadt & Jazz in the Park 2026 Combo Pass</h2>
+        <p>If you're the type of person who listens to death metal in the morning but prefers a much more settled vibe in the evening, the organizers had you in mind. For the 2026 edition, there's an option that breaks musical genre barriers: the <span class="pink-accent">combo pass</span> bringing together Rockstadt Extreme Fest and Jazz in the Park.</p>
+
+        <h3>Two Worlds, One Ticket</h3>
+        <p>Who said you have to choose? This special package gives you access to <span class="pink-accent">two completely different experiences</span>. Start your summer with the raw energy at the foot of the mountains in <span class="pink-accent">Ghimbav</span>, and end it on a much warmer note in the idyllic setting of the Ethnographic Park in <span class="pink-accent">Cluj-Napoca</span>. It's the ideal mix for those seeking a complete cultural summer.</p>
+
+        <h3>Why choose the combo version?</h3>
+        <p>The main reason is, obviously, <span class="pink-accent">savings</span>. Purchasing this dual pass comes at a much more advantageous price than buying separate tickets for each festival. It is, essentially, a gift for <span class="pink-accent">versatile ears</span> that appreciate both a distorted guitar solo and a <span class="pink-accent">saxophone improvisation</span> at sunset.</p>
+
+        <h3>The Perfect Vacation Balance</h3>
+        <p>After 5 days of dust, moshpits, and maximum intensity at Rockstadt, a few days of jazz represent the <span class="pink-accent">perfect detox</span>. Jazz in the Park is famous for its relaxed atmosphere, where you can sit on the grass, enjoy nature, and discover refined artists. It's how you <span class="pink-accent">recalibrate your senses</span> after the beautiful chaos in Ghimbav.</p>
+
+        <h3>Limited Availability</h3>
+        <p>Beware, however, these combo passes are not unlimited. They are intended for those who plan their summer escapes in advance and want to ensure they don't miss either of these <span class="pink-accent">landmark events</span>.</p>
+
+        <p style="text-align: center; font-size: 1.2rem; margin-top: 30px;">Whether you come for the breakdowns or the syncopated rhythms, summer 2026 promises to be one of <span class="pink-accent">perfect contrasts</span>!</p>
+
+        <div class="ticket-container">
+            <a href="https://bilete.rockstadtextremefest.ro/" target="_blank" class="ticket-btn">Buy Combo Pass Here</a>
+        </div>
+
+        <p class="disclaimer">Images used are taken from the official social media accounts of the two festivals; I do not own the copyrights to them.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+
+    function toggleLanguage() {
+        const ro = document.getElementById('content-ro');
+        const en = document.getElementById('content-en');
+        const btn = document.getElementById('langBtn');
+        if (ro.classList.contains('hidden')) {
+            ro.classList.remove('hidden'); 
+            en.classList.add('hidden');
+            btn.textContent = "Read in English 🇬🇧";
+        } else {
+            ro.classList.add('hidden'); 
+            en.classList.remove('hidden');
+            btn.textContent = "Citește în Română 🇷🇴";
+        }
+    }
+  </script>
+</body>
+</html>
